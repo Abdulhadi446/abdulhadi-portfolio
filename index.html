@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Abdulhadi — AI systems, shipped</title>
+<meta name="description" content="Abdulhadi is an AI engineer and founder building inference infrastructure, agentic systems, and privacy-first search.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="grain"></div>
+<div class="orb orb-a"></div>
+<div class="orb orb-b"></div>
+
+<nav>
+  <div class="nav-in">
+    <a href="#" class="logo"><span class="logo-mark">A</span> Abdulhadi</a>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#work">Work</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <a href="#contact" class="nav-cta">Start a conversation <span>↗</span></a>
+  </div>
+</nav>
+
+<div class="wrap">
+
+  <header class="hero">
+    <div class="hero-copy">
+      <div class="eyebrow"><span class="pulse"></span> AI engineer / founder <span class="eyebrow-line"></span> Karachi, PK</div>
+      <h1>Building the <em>machines</em> behind useful AI.</h1>
+      <p class="lede">I design, ship, and operate the infrastructure that turns models into products: inference APIs, agentic workflows, search, and automation.</p>
+      <div class="hero-cta">
+        <a href="#work" class="btn btn-primary">Explore the work <span>↓</span></a>
+        <a href="https://github.com/Abdulhadi446" target="_blank" rel="noopener" class="text-link">Open GitHub <span>↗</span></a>
+      </div>
+    </div>
+    <div class="hero-aside">
+      <div class="signal-card">
+        <div class="signal-top"><span class="live-dot"></span> CURRENTLY BUILDING</div>
+        <h2>Trillionir AI</h2>
+        <p>Flat-rate inference with OpenAI and Anthropic-compatible routing.</p>
+        <div class="signal-code"><span>POST</span> /v1/chat/completions <b>200</b></div>
+        <a href="https://trillionir.ai/" target="_blank" rel="noopener">Visit the platform <span>↗</span></a>
+      </div>
+      <div class="orbit-label"><span>01</span> model → product → impact</div>
+    </div>
+  </header>
+
+  <div class="proof-strip reveal"><span>PUBLIC BUILD LOG</span><strong>58</strong><small>repositories</small><i></i><strong>839</strong><small>contributions / year</small><i></i><strong>24/7</strong><small>systems mindset</small><a href="https://github.com/Abdulhadi446" target="_blank" rel="noopener">See the commits ↗</a></div>
+
+  <section id="about">
+    <div class="sec-head reveal">
+      <div class="sec-tag">01 / The operator</div>
+      <h2>Not just prompts.<br><span>Production systems.</span></h2>
+    </div>
+    <div class="about-grid">
+      <div class="about-text reveal">
+        <p>
+          AI engineer and founder with roughly <strong>two years of hands-on experience</strong> building
+          production LLM systems — inference APIs, multi-agent orchestrators, search infrastructure,
+          and automated content pipelines.
+        </p>
+        <p>
+          Comfortable across the full stack: from backend agent orchestration and model evaluation to
+          <strong>Next.js/TypeScript</strong> web apps and scraping/automation.
+        </p>
+        <p>
+          I run <strong>Trillionir AI</strong>, a flat-rate LLM inference platform, and
+          <strong>Sodeom</strong>, a privacy-first search engine — both built and operated end-to-end.
+        </p>
+      </div>
+      <div class="facts reveal">
+        <div class="fact">
+          <div class="fact-ico">01</div>
+          <div><div class="fact-k">Location</div><div class="fact-v">Karachi, Pakistan</div></div>
+        </div>
+        <div class="fact">
+          <div class="fact-ico">02</div>
+          <div><div class="fact-k">Website</div><div class="fact-v"><a href="https://thetrillioniar.me" target="_blank" rel="noopener">thetrillioniar.me</a></div></div>
+        </div>
+        <div class="fact">
+          <div class="fact-ico">03</div>
+          <div><div class="fact-k">Role</div><div class="fact-v">AI Engineer & Founder</div></div>
+        </div>
+        <div class="fact">
+          <div class="fact-ico">04</div>
+          <div><div class="fact-k">Education</div><div class="fact-v">Agentic AI Program, SMIT</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="work">
+    <div class="sec-head reveal">
+      <div class="sec-tag">02 / Selected systems</div>
+      <h2>Small teams.<br><span>Big surfaces.</span></h2>
+      <p class="sec-sub">A few things I have taken from rough idea to running software.</p>
+    </div>
+
+    <div class="projects">
+
+      <article class="project project-featured reveal">
+        <div class="p-top">
+          <div>
+            <div class="p-role">01 / Founder · infrastructure</div>
+            <h3>Trillionir AI</h3>
+            <p class="p-desc">A flat-rate LLM inference API with OpenAI- and Anthropic-compatible routing.</p>
+          </div>
+          <a href="https://sodeom.com/services/trillioniar" target="_blank" rel="noopener" class="p-link">Visit site ↗</a>
+        </div>
+        <div class="project-body"><ul class="p-list">
+          <li>Built a flat-rate LLM inference API with OpenAI- and Anthropic-compatible routing, letting clients swap in with zero code changes.</li>
+          <li>Built a model evaluation pipeline using openbench against a custom OpenAI-compatible proxy, benchmarking models including Gemma 4 31B, Rnj-1 8B, Devstral 24B, and SmolLM 135M.</li>
+          <li>Debugged HuggingFace dataset namespace issues and Ubuntu 24.04 environment problems to get the benchmarking pipeline running end-to-end.</li>
+        </ul><div class="project-metric"><strong>∞</strong><span>flat-rate<br>inference</span></div></div>
+        <div class="p-tags">
+          <span class="tag">OpenAI SDK</span><span class="tag">API Routing</span>
+          <span class="tag">Model Evaluation</span><span class="tag">openbench</span>
+          <span class="tag">Ubuntu</span>
+        </div>
+      </article>
+
+      <article class="project reveal">
+        <div class="p-top">
+          <div>
+            <div class="p-role">02 / Founder · search</div>
+            <h3>Sodeom</h3>
+            <p class="p-desc">Zero-tracking search across web, image, video, and news.</p>
+          </div>
+          <a href="https://sodeom.com" target="_blank" rel="noopener" class="p-link">Visit site ↗</a>
+        </div>
+        <ul class="p-list">
+          <li>Built and operate a privacy-first search engine with zero tracking, spanning web, image, video, and news search.</li>
+          <li>Stood up sodeom.com/v1, an OpenAI-compatible proxy endpoint that powers both product AI features and external model benchmarking.</li>
+          <li>Shipped and marketed side projects under the Sodeom umbrella (e.g. Aura Counter) across social platforms.</li>
+        </ul>
+        <div class="p-tags">
+          <span class="tag">Search Infrastructure</span><span class="tag">Privacy</span>
+          <span class="tag">OpenAI-Compatible Proxy</span><span class="tag">Growth</span>
+        </div>
+      </article>
+
+      <article class="project reveal">
+        <div class="p-top">
+          <div>
+            <div class="p-role">03 / Production system · agents</div>
+            <h3>TriageDesk</h3>
+            <p class="p-desc">A production multi-agent customer support orchestrator.</p>
+          </div>
+        </div>
+        <ul class="p-list">
+          <li>Built a production multi-agent customer support orchestrator in Python/FastAPI, including a custom BaseAgent orchestration layer built directly on the OpenAI SDK (no framework dependency).</li>
+          <li>Deployed and operated the system on an Ubuntu VM via Cloudflare Tunnel, handling day-to-day systems administration.</li>
+        </ul>
+        <div class="p-tags">
+          <span class="tag">Python</span><span class="tag">FastAPI</span>
+          <span class="tag">Multi-Agent</span><span class="tag">OpenAI SDK</span>
+          <span class="tag">Cloudflare Tunnel</span>
+        </div>
+      </article>
+
+      <article class="project reveal">
+        <div class="p-top">
+          <div>
+            <div class="p-role">04 / Automation · media</div>
+            <h3>AI Blog & Video Pipeline</h3>
+            <p class="p-desc">Daily AI news posts and short-form video, fully automated for blogs.thetrillioniar.me.</p>
+          </div>
+          <a href="https://blogs.thetrillioniar.me" target="_blank" rel="noopener" class="p-link">Visit site ↗</a>
+        </div>
+        <ul class="p-list">
+          <li>Built an AI-powered cron job pipeline that auto-writes daily AI news blog posts, using MCP tool calling for live web search and dynamic model selection across providers.</li>
+          <li>Evaluated and selected models across multiple providers based on reasoning quality, tool-calling support, and rate-limit constraints, landing on mistral-medium-3.5 with gemma4:31b as a fallback.</li>
+          <li>Extended the pipeline into a daily "AI speedrun" short-form video series: blog content is summarized into a script, rendered via generative video models, and auto-published across platforms.</li>
+        </ul>
+        <div class="p-tags">
+          <span class="tag">MCP Tool Use</span><span class="tag">Cron Pipelines</span>
+          <span class="tag">Dynamic Model Selection</span><span class="tag">Video Gen</span>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="sec-head reveal">
+      <div class="sec-tag">03 / The toolkit</div>
+      <h2>Close to the metal,<br><span>comfortable in the browser.</span></h2>
+    </div>
+    <div class="skills-grid">
+      <div class="skill-card reveal">
+        <div class="skill-head"><div class="skill-ico">AI</div><h4>AI / LLM Systems</h4></div>
+        <div class="skill-items">
+          <span class="chip">LLM API Integration</span><span class="chip">Routing</span>
+          <span class="chip">Agent Orchestration</span><span class="chip">Model Eval</span>
+          <span class="chip">Benchmarking</span><span class="chip">Prompt Engineering</span>
+          <span class="chip">MCP Tool Use</span>
+        </div>
+      </div>
+      <div class="skill-card reveal">
+        <div class="skill-head"><div class="skill-ico">BE</div><h4>Backend</h4></div>
+        <div class="skill-items">
+          <span class="chip">Python</span><span class="chip">FastAPI</span>
+          <span class="chip">OpenAI SDK</span><span class="chip">Background Jobs</span>
+          <span class="chip">Webhooks</span><span class="chip">REST API Design</span>
+        </div>
+      </div>
+      <div class="skill-card reveal">
+        <div class="skill-head"><div class="skill-ico">UI</div><h4>Web / Frontend</h4></div>
+        <div class="skill-items">
+          <span class="chip">Next.js</span><span class="chip">React</span>
+          <span class="chip">TypeScript</span><span class="chip">Supabase</span>
+        </div>
+      </div>
+      <div class="skill-card reveal">
+        <div class="skill-head"><div class="skill-ico">AU</div><h4>Automation & Scraping</h4></div>
+        <div class="skill-items">
+          <span class="chip">Web Scraping</span><span class="chip">Browser Automation</span>
+          <span class="chip">Cron Pipelines</span><span class="chip">HuggingFace</span>
+        </div>
+      </div>
+      <div class="skill-card reveal">
+        <div class="skill-head"><div class="skill-ico">OP</div><h4>Infrastructure</h4></div>
+        <div class="skill-items">
+          <span class="chip">Linux / Ubuntu</span><span class="chip">System Admin</span>
+          <span class="chip">Cloudflare Tunnel</span><span class="chip">Cloud Deployment</span>
+          <span class="chip">Local Servers</span>
+        </div>
+      </div>
+      <div class="skill-card reveal">
+        <div class="skill-head"><div class="skill-ico">+</div><h4>Also good at</h4></div>
+        <div class="skill-items">
+          <span class="chip">Model Selection</span><span class="chip">Debugging</span>
+          <span class="chip">Product Shipping</span><span class="chip">Social Marketing</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="education">
+    <div class="sec-head reveal">
+      <div class="sec-tag">04 / Timeline</div>
+      <h2>Still learning.<br><span>Always shipping.</span></h2>
+    </div>
+    <div class="edu reveal">
+      <div class="edu-bar"></div>
+      <div>
+        <h4>Agentic AI Program, Batch-3 — SMIT</h4>
+        <p>Specialized program focused on agentic systems, LLM orchestration, and production AI workflows.</p>
+        <div class="edu-dates">Dec 2025 – Aug 2026</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="contact-box reveal">
+      <div class="sec-tag" style="justify-content:center">05 / Contact</div>
+      <h2>Have a hard problem?<br><em>Let's make it real.</em></h2>
+      <p>Open to collaborations, inference platform clients, and interesting AI engineering problems.</p>
+      <div class="contact-links">
+        <a href="https://thetrillioniar.me" target="_blank" rel="noopener" class="btn btn-primary">thetrillioniar.me ↗</a>
+        <a href="https://github.com/Abdulhadi446" target="_blank" rel="noopener" class="btn btn-ghost">GitHub</a>
+        <a href="https://linkedin.com/in/abdulhadi-junaid" target="_blank" rel="noopener" class="btn btn-ghost">LinkedIn</a>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  <div class="wrap foot-in">
+    <div>© 2026 Abdulhadi — AI Engineer & Founder</div>
+    <div class="foot-links">
+      <a href="https://thetrillioniar.me" target="_blank" rel="noopener">Website</a>
+      <a href="https://sodeom.com" target="_blank" rel="noopener">Sodeom</a>
+      <a href="https://blogs.thetrillioniar.me" target="_blank" rel="noopener">Blog</a>
+      <a href="https://github.com/Abdulhadi446" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>
