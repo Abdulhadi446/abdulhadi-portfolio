@@ -1,0 +1,245 @@
+/* ============================================================
+   styles/base.css  —  shared by EVERY page (gateway + 5 tracks)
+   reset, tokens, per-role accent vars, body, grain, base type,
+   nav + mobile menu, footer, reveal, skip link, keyboard overlay.
+   Do NOT put page-specific design here: role pages own
+   styles/<page>.css, the gateway owns styles/gateway.css.
+   ============================================================ */
+
+/* ============================================================
+   Abdulhadi — "Signal Terminal" design system
+   Dark-only. Per-role accent. Space Grotesk + DM Mono.
+   Liquid Glass only on the floating nav. Soft elevation elsewhere.
+   ============================================================ */
+
+/* ---- reset ---- */
+*, *::before, *::after { box-sizing: border-box; }
+* { margin: 0; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+img, picture, svg, video { display: block; max-width: 100%; }
+input, button, textarea, select { font: inherit; color: inherit; }
+button { cursor: pointer; background: none; border: none; }
+a { color: inherit; text-decoration: none; }
+ul { list-style: none; padding: 0; }
+
+/* ---- tokens ---- */
+:root {
+  --bg: #08090b;
+  --bg-deep: #000000;
+  --surface: #0e1013;
+  --surface-2: #13161a;
+  --line: rgba(255,255,255,.09);
+  --line-strong: rgba(255,255,255,.16);
+  --text: #eceef1;
+  --text-2: #a2a7b0;
+  --text-3: #71767f;
+
+  --accent: #4ade80;
+  --accent-ink: #04140a;
+  --accent-dim: rgba(74,222,128,.14);
+  --accent-line: rgba(74,222,128,.42);
+
+  --plate: #05060a;
+  --glass-bg: rgba(14,16,19,.62);
+  --glass-line: rgba(255,255,255,.12);
+
+  --sh-1: 0 1px 2px rgba(0,0,0,.5);
+  --sh-2: 0 20px 50px rgba(0,0,0,.55);
+  --sh-glow: 0 0 0 1px var(--accent-line), 0 18px 60px -30px var(--accent);
+
+  --r-sm: 8px; --r-md: 14px; --r-lg: 20px; --r-xl: 26px;
+  --maxw: 1140px;
+  --nav-h: 66px;
+
+  --mono: "DM Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  --sans: "Space Grotesk", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+/* per-role accents: one page, one color */
+html[data-role="ai-ml"]        { --accent:#4ade80; --accent-ink:#04140a; --accent-dim:rgba(74,222,128,.14);  --accent-line:rgba(74,222,128,.42); }
+html[data-role="ai-automation"]{ --accent:#22d3ee; --accent-ink:#04141a; --accent-dim:rgba(34,211,238,.14);  --accent-line:rgba(34,211,238,.42); }
+html[data-role="founder"]      { --accent:#fbbf24; --accent-ink:#160d00; --accent-dim:rgba(251,191,36,.14);  --accent-line:rgba(251,191,36,.42); }
+html[data-role="fullstack"]    { --accent:#60a5fa; --accent-ink:#041024; --accent-dim:rgba(96,165,250,.14);  --accent-line:rgba(96,165,250,.42); }
+html[data-role="fde"]          { --accent:#a78bfa; --accent-ink:#0d0424; --accent-dim:rgba(167,139,250,.14); --accent-line:rgba(167,139,250,.42); }
+
+/* ---- base ---- */
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--sans);
+  font-size: 1.0625rem;
+  line-height: 1.62;
+  letter-spacing: .005em;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+body.boot-lock { overflow: hidden; }
+
+::selection { background: var(--accent); color: var(--accent-ink); }
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* subtle grain over everything (pointer-transparent) */
+.grain {
+  position: fixed; inset: 0; z-index: 60; pointer-events: none;
+  opacity: .03; mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+.wrap { width: 100%; max-width: var(--maxw); margin-inline: auto; padding-inline: clamp(20px, 5vw, 40px); }
+
+.eyebrow {
+  font-family: var(--mono);
+  font-size: .72rem;
+  letter-spacing: .32em;
+  text-transform: uppercase;
+  color: var(--accent);
+  display: inline-flex; align-items: center; gap: .7em;
+}
+.eyebrow::before {
+  content: ""; width: 26px; height: 2px; background: var(--accent); display: inline-block;
+}
+
+h1, h2, h3 { line-height: 1.05; letter-spacing: -.02em; font-weight: 600; }
+.cond { font-weight: 300; color: var(--text-2); }
+
+/* ============================================================
+   NAV — floating Liquid Glass (the only glass)
+   ============================================================ */
+.nav-shell {
+  position: sticky; top: 14px; z-index: 50;
+  width: 100%; max-width: var(--maxw);
+  margin: 14px auto 0; padding-inline: clamp(10px, 3vw, 16px);
+}
+.nav-shell > nav {
+  height: var(--nav-h);
+  display: flex; align-items: center; gap: 18px;
+  padding: 0 12px 0 18px;
+  background: var(--glass-bg);
+  -webkit-backdrop-filter: blur(24px) saturate(1.4);
+  backdrop-filter: blur(24px) saturate(1.4);
+  border: 1px solid var(--glass-line);
+  border-radius: var(--r-md);
+  box-shadow: var(--sh-2);
+}
+.logo { display: flex; align-items: center; gap: 10px; font-weight: 600; letter-spacing: -.01em; font-size: .98rem; }
+.logo-mark {
+  width: 26px; height: 26px; border-radius: 50%;
+  background: var(--accent); color: var(--accent-ink);
+  display: grid; place-items: center; font-size: .82rem; font-weight: 700;
+  box-shadow: 0 0 16px -2px var(--accent);
+}
+.logo .role-name { font-family: var(--mono); font-size: .72rem; color: var(--accent); letter-spacing: .1em; text-transform: uppercase; }
+.nav-links { display: flex; gap: 4px; margin-left: 8px; }
+.nav-links a {
+  font-size: .92rem; color: var(--text-2); padding: 8px 12px; border-radius: var(--r-sm);
+  position: relative; transition: color .2s;
+}
+.nav-links a::after {
+  content: ""; position: absolute; left: 12px; right: 12px; bottom: 4px; height: 2px;
+  background: var(--accent); transform: scaleX(0); transform-origin: left; transition: transform .3s;
+}
+.nav-links a:hover { color: var(--text); }
+.nav-links a.active { color: var(--text); }
+.nav-links a.active::after { transform: scaleX(1); }
+.nav-tools { margin-left: auto; display: flex; align-items: center; gap: 10px; }
+.nav-cta {
+  font-size: .88rem; font-weight: 500;
+  background: var(--accent); color: var(--accent-ink);
+  padding: 9px 15px; border-radius: 999px;
+  transition: filter .2s, transform .2s;
+}
+.nav-cta:hover { filter: brightness(1.08); transform: translateY(-1px); }
+.nav-home {
+  font-family: var(--mono); font-size: .72rem; color: var(--text-2);
+  border: 1px solid var(--line); border-radius: 999px; padding: 8px 13px;
+  transition: border-color .2s, color .2s;
+}
+.nav-home:hover { color: var(--text); border-color: var(--line-strong); }
+
+.menu-toggle { display: none; width: 40px; height: 40px; border: 1px solid var(--line); border-radius: var(--r-sm); position: relative; }
+.menu-toggle span { position: absolute; left: 11px; right: 11px; height: 2px; background: var(--text); transition: transform .3s, top .3s; }
+.menu-toggle span:nth-child(1) { top: 15px; }
+.menu-toggle span:nth-child(2) { top: 23px; }
+.menu-toggle[aria-expanded="true"] span:nth-child(1) { top: 19px; transform: rotate(45deg); }
+.menu-toggle[aria-expanded="true"] span:nth-child(2) { top: 19px; transform: rotate(-45deg); }
+
+.mobile-menu {
+  display: none; flex-direction: column; gap: 2px;
+  margin-top: 8px; padding: 10px;
+  background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-md);
+  box-shadow: var(--sh-2);
+}
+.mobile-menu a { padding: 12px 14px; border-radius: var(--r-sm); color: var(--text-2); font-size: 1rem; }
+.mobile-menu a.active { color: var(--accent); background: var(--accent-dim); }
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+footer { border-top: 1px solid var(--line); padding: 30px 0; margin-top: 40px; }
+.foot-in { display: flex; flex-wrap: wrap; gap: 14px 24px; align-items: center; justify-content: space-between; }
+.foot-copy { font-family: var(--mono); font-size: .76rem; color: var(--text-3); letter-spacing: .04em; }
+.foot-copy span { color: var(--text-2); }
+.foot-links { display: flex; flex-wrap: wrap; gap: 18px; font-family: var(--mono); font-size: .76rem; }
+.foot-links a { color: var(--text-3); transition: color .2s; }
+.foot-links a:hover { color: var(--accent); }
+.foot-back {
+  font-family: var(--mono); font-size: .76rem; color: var(--accent);
+  border: 1px solid var(--accent-line); border-radius: 999px; padding: 8px 15px;
+  transition: background .2s, color .2s;
+}
+.foot-back:hover { background: var(--accent); color: var(--accent-ink); }
+
+/* ============================================================
+   REVEAL
+   ============================================================ */
+.js .reveal { opacity: 0; transform: translateY(22px); transition: opacity .7s ease, transform .7s cubic-bezier(.2,.7,.3,1); }
+.js .reveal.on { opacity: 1; transform: none; }
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .nav-cta { display: none; }
+  .menu-toggle { display: block; }
+  .mobile-menu.open { display: flex; }
+  html:not(.js) .menu-toggle { display: none; }
+  html:not(.js) .mobile-menu { display: flex; }
+}
+@media (max-width: 560px) {
+  body { font-size: 1rem; }
+}
+/* ============================================================
+   REDUCED MOTION
+   ============================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; scroll-behavior: auto !important; }
+  .js .reveal { opacity: 1 !important; transform: none !important; }
+}
+
+/* ---- skip link (keyboard first) ---- */
+.skip-link { position: fixed; top: 14px; left: 14px; z-index: 400; padding: 13px 18px; background: var(--accent); color: var(--accent-ink); font-family: var(--mono); font-size: .78rem; font-weight: 500; letter-spacing: .1em; text-transform: uppercase; border-radius: var(--r-sm); transform: translateY(-250%); transition: transform .2s ease; box-shadow: var(--sh-1); }
+.skip-link:focus { transform: none; outline: 2px solid var(--text); outline-offset: 2px; }
+
+/* ---- keyboard shortcut overlay (injected by script.js) ---- */
+.kbd-overlay { position: fixed; inset: 0; z-index: 300; display: grid; place-items: center; padding: 24px; background: rgba(2,4,8,.74); backdrop-filter: blur(8px); }
+.kbd-overlay[hidden] { display: none; }
+.kbd-card { width: min(580px, 100%); max-height: 82vh; overflow: auto; background: var(--surface); border: 1px solid var(--line-strong); border-radius: 18px; padding: 28px 30px; box-shadow: var(--sh-2); }
+.kbd-card:focus { outline: none; border-color: var(--accent-line); }
+.kbd-card h2 { font-size: 1.15rem; }
+.kbd-hint { font-family: var(--mono); font-size: .74rem; color: var(--text-3); letter-spacing: .05em; margin-top: 8px; }
+.kbd-list { display: grid; gap: 11px; margin-top: 20px; }
+.kbd-row { display: flex; justify-content: space-between; align-items: baseline; gap: 18px; }
+.kbd-row .kbd-label { color: var(--text-2); font-size: .92rem; }
+.kbd-keys { display: inline-flex; gap: 6px; flex-shrink: 0; }
+.kbd-keys kbd { font-family: var(--mono); font-size: .72rem; color: var(--text); background: var(--surface-2); border: 1px solid var(--line-strong); border-bottom-width: 2px; border-radius: 7px; padding: 3px 8px; min-width: 24px; text-align: center; }
+.kbd-close { margin-top: 24px; padding: 11px 17px; border: 1px solid var(--line-strong); border-radius: var(--r-sm); background: transparent; color: var(--text); font-family: var(--mono); font-size: .74rem; font-weight: 500; letter-spacing: .09em; text-transform: uppercase; cursor: pointer; transition: border-color .2s, color .2s; }
+.kbd-close:hover { border-color: var(--accent); color: var(--accent); }

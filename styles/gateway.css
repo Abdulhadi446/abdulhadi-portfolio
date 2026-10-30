@@ -1,0 +1,167 @@
+/* ============================================================
+   styles/gateway.css  —  index.html only (boot + track picker)
+   ============================================================ */
+
+/* ============================================================
+   BOOT / TERMINAL LOADER  (index only)
+   ============================================================ */
+.boot {
+  position: fixed; inset: 0; z-index: 90;
+  background: #000;
+  display: grid; place-items: center;
+  padding: 24px;
+  transition: opacity .6s ease, visibility .6s ease;
+}
+.boot.done { opacity: 0; visibility: hidden; }
+html:not(.js) .boot { display: none; }
+.boot-term {
+  width: min(640px, 100%);
+  border: 1px solid var(--line-strong);
+  border-radius: var(--r-md);
+  background: #050605;
+  box-shadow: 0 40px 120px -40px rgba(74,222,128,.25);
+  overflow: hidden;
+}
+.boot-bar {
+  display: flex; align-items: center; gap: 8px;
+  padding: 11px 14px;
+  border-bottom: 1px solid var(--line);
+  background: #0a0b0a;
+}
+.boot-dot { width: 11px; height: 11px; border-radius: 50%; background: #26282b; }
+.boot-bar-title {
+  margin-left: 8px; font-family: var(--mono); font-size: .72rem; color: var(--text-3);
+  letter-spacing: .1em;
+}
+.boot-body { padding: 20px 18px 16px; min-height: 268px; }
+.boot-line {
+  font-family: var(--mono); font-size: .82rem; line-height: 1.9;
+  color: #6ee7a0; white-space: pre-wrap; word-break: break-word;
+}
+.boot-line .ok { color: var(--accent); }
+.boot-line .dim { color: var(--text-3); }
+.boot-line .warn { color: #fbbf24; }
+.boot-cursor {
+  display: inline-block; width: .6em; height: 1.05em;
+  background: var(--accent); vertical-align: text-bottom;
+  animation: blink 1s steps(1) infinite;
+}
+@keyframes blink { 50% { opacity: 0; } }
+
+.boot-progress {
+  height: 4px; background: #16181a; border-radius: 999px; overflow: hidden;
+  margin-top: 18px;
+}
+.boot-progress > span {
+  display: block; height: 100%; width: 0%;
+  background: linear-gradient(90deg, var(--accent), #9dffcf);
+  box-shadow: 0 0 14px var(--accent);
+  transition: width .2s ease;
+}
+.boot-meta {
+  display: flex; justify-content: space-between;
+  font-family: var(--mono); font-size: .68rem; color: var(--text-3);
+  margin-top: 8px; letter-spacing: .08em;
+}
+.boot-skip {
+  font-family: var(--mono); font-size: .7rem; color: var(--text-3);
+  letter-spacing: .12em; text-transform: uppercase;
+  border: 1px solid var(--line); border-radius: var(--r-sm);
+  padding: 7px 12px; margin-top: 16px;
+  transition: color .2s, border-color .2s;
+}
+.boot-skip:hover { color: var(--text); border-color: var(--line-strong); }
+
+/* ============================================================
+   GATEWAY (role selector) — pure black
+   ============================================================ */
+.gateway {
+  min-height: 100vh;
+  background: #000;
+  display: flex; flex-direction: column;
+  padding: clamp(28px, 6vh, 56px) clamp(20px, 5vw, 40px);
+}
+html.js .gateway { opacity: 0; transform: translateY(14px); transition: opacity .7s ease .1s, transform .7s ease .1s; }
+html.js .gateway.show { opacity: 1; transform: none; }
+.gw-inner { width: 100%; max-width: 940px; margin: auto; }
+
+.gw-head { margin-bottom: clamp(30px, 5vh, 48px); }
+.gw-head .brand {
+  font-family: var(--mono); font-size: .74rem; letter-spacing: .24em;
+  text-transform: uppercase; color: var(--text-3);
+}
+.gw-head .brand b { color: var(--accent); font-weight: 500; }
+.gw-head h1 {
+  font-size: clamp(2.4rem, 7vw, 4rem); margin-top: 18px; letter-spacing: -.03em;
+}
+.gw-head h1 em { font-style: normal; font-weight: 300; color: var(--text-2); }
+.gw-sub {
+  color: var(--text-2); max-width: 44ch; margin-top: 14px; font-size: 1.05rem;
+}
+
+.roles { display: grid; gap: 14px; }
+.role-btn {
+  position: relative;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: clamp(16px, 3vw, 30px);
+  padding: clamp(18px, 3vw, 26px) clamp(18px, 3vw, 28px);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  transition: transform .35s cubic-bezier(.2,.7,.3,1), border-color .3s, background .3s, box-shadow .3s;
+}
+.role-btn::before {
+  content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 3px;
+  background: var(--rc); transform: scaleY(0); transform-origin: bottom;
+  transition: transform .4s cubic-bezier(.2,.7,.3,1);
+}
+.role-btn:hover, .role-btn:focus-visible {
+  transform: translateY(-3px);
+  border-color: var(--rc);
+  background: color-mix(in srgb, var(--rc) 8%, var(--surface));
+  box-shadow: 0 22px 60px -30px var(--rc);
+}
+.role-btn:hover::before, .role-btn:focus-visible::before { transform: scaleY(1); }
+
+.role-btn[data-role="ai-ml"]         { --rc:#4ade80; }
+.role-btn[data-role="ai-automation"] { --rc:#22d3ee; }
+.role-btn[data-role="founder"]       { --rc:#fbbf24; }
+.role-btn[data-role="fullstack"]     { --rc:#60a5fa; }
+.role-btn[data-role="fde"]           { --rc:#a78bfa; }
+
+.role-tag {
+  font-family: var(--mono); font-size: .78rem; font-weight: 500;
+  color: var(--rc);
+  width: 46px; height: 46px; display: grid; place-items: center;
+  border: 1px solid color-mix(in srgb, var(--rc) 45%, transparent);
+  border-radius: var(--r-sm);
+  background: color-mix(in srgb, var(--rc) 12%, transparent);
+  letter-spacing: .04em;
+}
+.role-body { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+.role-title { font-size: clamp(1.15rem, 2.6vw, 1.5rem); font-weight: 600; letter-spacing: -.01em; }
+.role-desc { font-family: var(--mono); font-size: .76rem; color: var(--text-2); letter-spacing: .02em; }
+.role-arrow {
+  font-size: 1.4rem; color: var(--text-3);
+  transition: transform .3s, color .3s;
+}
+.role-btn:hover .role-arrow, .role-btn:focus-visible .role-arrow {
+  transform: translateX(6px); color: var(--rc);
+}
+
+.gw-foot {
+  width: 100%; max-width: 940px; margin: clamp(30px, 5vh, 46px) auto 0;
+  display: flex; flex-wrap: wrap; gap: 8px 20px; align-items: center; justify-content: space-between;
+  font-family: var(--mono); font-size: .72rem; color: var(--text-3); letter-spacing: .06em;
+}
+.gw-foot .foot-links { display: flex; flex-wrap: wrap; gap: 16px; }
+.gw-foot a { color: var(--text-3); transition: color .2s; }
+.gw-foot a:hover { color: var(--accent); }
+
+@media (max-width: 560px) {
+  .role-btn { grid-template-columns: auto 1fr; }
+  .role-arrow { display: none; }
+}
