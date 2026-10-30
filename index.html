@@ -4,13 +4,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Abdulhadi: AI systems, shipped</title>
-<meta name="description" content="Abdulhadi is an AI engineer and founder building inference infrastructure, agentic systems, and privacy-first search.">
+<meta name="description" content="Abdulhadi is an AI engineer and founder building inference infrastructure, agentic systems, privacy-first search, and open quantization research.">
 <script>
 (function () { try { var t = localStorage.getItem('theme'); if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t); } catch (e) {} })();
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,100..900;1,62..125,400..700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -46,14 +46,14 @@
     <div class="hero-copy">
       <p class="eyebrow">AI engineer / founder</p>
       <h1 class="hero-title">Building the <span class="cond">machines</span> behind useful AI.</h1>
-      <p class="lede">I design, ship, and run the infrastructure that turns models into products: inference APIs, agents, search, automation.</p>
+      <p class="lede">I design, ship, and run the infrastructure that turns models into products: inference APIs, agents, search, quantization, automation.</p>
       <div class="hero-cta">
         <a href="#work" class="btn btn-primary">Explore the work <span aria-hidden="true">↓</span></a>
         <a href="https://github.com/Abdulhadi446" target="_blank" rel="noopener" class="text-link" aria-label="Open Abdulhadi's GitHub profile in a new tab">Open GitHub <span aria-hidden="true">↗</span></a>
       </div>
     </div>
     <aside class="hero-aside reveal">
-      <div class="signal-card">
+      <div class="signal-card" data-tilt>
         <div class="signal-top"><span class="live-dot" aria-hidden="true"></span> Currently building</div>
         <h2>Trillionir AI</h2>
         <p>Flat-rate inference with OpenAI and Anthropic compatible routing.</p>
@@ -78,8 +78,8 @@
       <div class="about-text reveal">
         <p>
           AI engineer and founder with <strong>3 years of hands-on experience</strong> building
-          production LLM systems: inference APIs, multi-agent orchestrators, search infrastructure,
-          and automated content pipelines.
+          production AI, going back to before Claude Code and Codex existed. Inference APIs,
+          multi-agent orchestrators, search infrastructure, and automated content pipelines.
         </p>
         <p>
           Comfortable across the full stack, from backend agent orchestration and model evaluation to
@@ -87,12 +87,17 @@
         </p>
         <p>
           I run <strong>Trillionir AI</strong>, a flat-rate LLM inference platform, and
-          <strong>Sodeom</strong>, a privacy-first search engine. Both are built and operated end to end.
+          <strong>Sodeom</strong>, a privacy-first search engine. Both are built and operated end to end,
+          alongside <strong>TriMind</strong>, open-source quantization and distillation research.
         </p>
         <p>
           Daily driver is a fleet of AI coding agents: Claude Code, Goose, Pi, OpenCode, Agy, Hermes,
           OpenClaw, GitHub Copilot, Codex, Paperclip. Deepest specialization is in
           <strong>OpenCode, Hermes, and OpenClaw</strong>.
+        </p>
+        <p>
+          Outside the products: moderator of an AI research community, and deep in the weeds on
+          HRM, inference-time scaling, interpretability, BitNet and ternary quantization, and small models.
         </p>
       </div>
       <div class="about-side reveal">
@@ -114,7 +119,11 @@
           </div>
           <div class="dossier-row">
             <dt>Education</dt>
-            <dd>Agentic AI program, SMIT</dd>
+            <dd>Agentic AI, batch 3 at SMIT</dd>
+          </div>
+          <div class="dossier-row">
+            <dt>Research</dt>
+            <dd>Quantization and small models</dd>
           </div>
         </dl>
       </div>
@@ -127,16 +136,17 @@
       <p class="sec-sub">A few things I have taken from rough idea to running software.</p>
     </div>
 
-    <article class="work-featured reveal">
+    <article class="work-featured reveal glass-card" data-tilt>
       <div class="wf-grid">
         <div class="wf-main">
           <p class="wf-role">Founder, infrastructure</p>
           <h3>Trillionir AI</h3>
           <p class="wf-desc">A flat-rate LLM inference API with OpenAI and Anthropic compatible routing.</p>
           <ul class="wf-list">
-            <li>Shipped a flat-rate LLM inference API with OpenAI and Anthropic compatible routing, so clients swap in with zero code changes.</li>
+            <li>Shipped a flat-rate LLM inference API with OpenAI and Anthropic compatible routing, so clients swap in with zero code changes. Inference that just works and never says it is out of credits.</li>
             <li>Built a model evaluation pipeline with openbench against a custom OpenAI-compatible proxy, benchmarking models including Gemma 4 31B, Rnj-1 8B, Devstral 24B, and SmolLM 135M.</li>
-            <li>Debugged HuggingFace dataset namespace issues and Ubuntu 24.04 environment problems to get the pipeline running end to end.</li>
+            <li>Running an early Community Hub: 21 users, 371k requests, and 62k tokens served in the first weeks (October 2026).</li>
+            <li>Shipping a B2B tier for unlimited open-weight tokens, already serving a Minecraft server owner's AI bots at around 10k requests a day.</li>
           </ul>
           <div class="p-tags">
             <span class="tag">OpenAI SDK</span><span class="tag">API routing</span>
@@ -165,17 +175,47 @@
             <figure class="work-shot">
               <img src="assets/work-sodeom.png" alt="The Sodeom search engine homepage: private search without tracking" width="800" height="244" loading="lazy">
             </figure>
+            <form class="project-tool sodeom-tool" action="https://sodeom.com/" method="get" target="_blank" rel="noopener">
+              <label for="sodeom-query">Search privately</label>
+              <div class="project-tool-row">
+                <input id="sodeom-query" name="q" type="search" placeholder="Search the web..." autocomplete="off" required>
+                <button type="submit" aria-label="Search with Sodeom">Search</button>
+              </div>
+            </form>
           </div>
           <a href="https://sodeom.com" target="_blank" rel="noopener" class="p-link" aria-label="Visit sodeom.com in a new tab">Visit site <span aria-hidden="true">↗</span></a>
         </div>
         <ul class="wi-list">
           <li>Built and operate a privacy-first search engine with zero tracking, spanning web, image, video, and news search.</li>
+          <li>Rebuilt search on SearXNG after originally crawling result pages directly, cutting the maintenance surface.</li>
           <li>Stood up sodeom.com/v1, an OpenAI-compatible proxy endpoint that powers both product AI features and external model benchmarking.</li>
-          <li>Shipped and marketed side projects under the Sodeom umbrella, such as Aura Counter, across social platforms.</li>
+          <li>Shipped Aura Counter, a satirical counter with a full account system, under the Sodeom umbrella and marketed it across social platforms.</li>
         </ul>
         <div class="p-tags">
-          <span class="tag">Search infrastructure</span><span class="tag">Privacy</span>
+          <span class="tag">SearXNG</span><span class="tag">Privacy</span>
           <span class="tag">OpenAI-compatible proxy</span><span class="tag">Growth</span>
+        </div>
+      </article>
+
+      <article class="work-item reveal">
+        <div class="wi-head">
+          <div>
+            <p class="wf-role">Open-source research</p>
+            <h3>TriMind</h3>
+            <p class="wf-desc">Quantization and distillation research, open-sourced.</p>
+          </div>
+          <a href="https://huggingface.co/thetrillioniar" target="_blank" rel="noopener" class="p-link" aria-label="Open Abdulhadi's HuggingFace profile in a new tab">HuggingFace <span aria-hidden="true">↗</span></a>
+        </div>
+        <ul class="wi-list">
+          <li>Compared Qwen3-8B quantization tiers, FP32, INT4, INT2, Q2_K, and BitNet, on Kaggle 2xT4 using LLaMA-Factory and TRL.</li>
+          <li>Published thetrillioniar/Qwen3-8B-1Q on HuggingFace.</li>
+          <li>Built quant-it, a 1-bit and ternary quantization tool that is MoE-aware.</li>
+          <li>Also in the lab: QLoRA on Kimi-VL-A3B-Thinking, a GLM-5.2 distillation dataset, and distilling Qwen3.6-35B-A3B into Falcon 3B.</li>
+        </ul>
+        <div class="p-tags">
+          <span class="tag">Quantization</span><span class="tag">Distillation</span>
+          <span class="tag">LLaMA-Factory</span><span class="tag">TRL</span>
+          <span class="tag">BitNet</span><span class="tag">HuggingFace</span>
         </div>
       </article>
 
@@ -212,12 +252,13 @@
         </div>
         <ul class="wi-list">
           <li>Built an AI-powered cron pipeline that auto-writes daily AI news posts, using MCP tool calling for live web search and dynamic model selection across providers.</li>
-          <li>Evaluated and selected models across multiple providers on reasoning quality, tool-calling support, and rate limits, landing on mistral-medium-3.5 with gemma4:31b as a fallback.</li>
-          <li>Extended the pipeline into a daily AI speedrun short-form video series: blog content is summarized into a script, rendered via generative video models, and auto-published across platforms.</li>
+          <li>Evaluated and selected models across multiple providers on reasoning quality, tool-calling support, and rate limits, landing on mistral-medium-3.5 with gemma4:31b as a quota-efficient fallback.</li>
+          <li>Extended the pipeline into a daily AI speedrun: posts become short-form videos with edge-tts narration and ffmpeg slideshows, auto-published to LinkedIn and YouTube through Buffer.</li>
         </ul>
         <div class="p-tags">
           <span class="tag">MCP tool use</span><span class="tag">Cron pipelines</span>
-          <span class="tag">Dynamic model selection</span><span class="tag">Video gen</span>
+          <span class="tag">Dynamic model selection</span><span class="tag">edge-tts</span>
+          <span class="tag">ffmpeg</span><span class="tag">Buffer</span>
         </div>
       </article>
 
@@ -226,7 +267,7 @@
           <div>
             <p class="wf-role">Automation, growth</p>
             <h3>Hermes growth loop</h3>
-            <p class="wf-desc">Four cron-driven agents running the Trillionir and Sodeom growth loop.</p>
+            <p class="wf-desc">Cron-driven agents running the Trillionir and Sodeom growth loop.</p>
             <figure class="work-shot">
               <img src="assets/work-b2b.png" alt="The Trillionir business tier page that the outreach funnel sends leads to" width="800" height="322" loading="lazy">
             </figure>
@@ -235,13 +276,36 @@
         </div>
         <ul class="wi-list">
           <li>Blog agent searches the web for AI news and auto-publishes posts to blogs.thetrillioniar.me.</li>
-          <li>Video agent reads those posts, composes a short-form video from them, and uploads it to LinkedIn.</li>
-          <li>Research agent hunts startups and companies complaining about AI pricing, digs into them, and saves structured profiles to a handoff file.</li>
-          <li>Outreach agent reads that file and cold-emails each lead with the self-hosted-models pitch, sending them to the B2B form.</li>
+          <li>Research agent hunts founders' emails from sources like Hacker News hiring posts and writes a daily lead CSV.</li>
+          <li>Outreach agent reads that file and cold-emails each lead through Resend with the self-hosted-models pitch, sending them to the B2B form.</li>
+          <li>Video agent turns JS animations into short videos and posts them via Buffer. All agents run on gemma4:31b from Ollama, and an n8n flow mirrors daily commit activity to LinkedIn.</li>
         </ul>
         <div class="p-tags">
           <span class="tag">Hermes</span><span class="tag">Cron agents</span>
-          <span class="tag">Lead research</span><span class="tag">Cold outreach</span>
+          <span class="tag">Resend</span><span class="tag">Ollama</span>
+          <span class="tag">n8n</span>
+        </div>
+      </article>
+
+      <article class="work-item reveal">
+        <div class="wi-head">
+          <div>
+            <p class="wf-role">Side projects</p>
+            <h3>More things that shipped</h3>
+            <p class="wf-desc">Tight-turnaround builds and creative coding experiments.</p>
+          </div>
+          <a href="https://porsches-rho.vercel.app" target="_blank" rel="noopener" class="p-link" aria-label="Open the Porsche 911 showcase site in a new tab">Porsche site <span aria-hidden="true">↗</span></a>
+        </div>
+        <ul class="wi-list">
+          <li>Porsche 911 Showcase: Next.js 16, React 19, Tailwind v4, React Three Fiber, GSAP and Lenis, with media on Cloudflare R2.</li>
+          <li>Trisonic: a Spotify clone driven by a conversational AI agent that controls playback.</li>
+          <li>3D Library of Babel: the Library of Babel explorable in 3D, with doors.</li>
+          <li>chat-to-video and paperclip: both built in under 12 hours from a personal project template, as hackathon prep. Plus an Instagram DM logger, an every-model Audi site built by parallel sub-agents, a Blender city rendered through Blender MCP, and early JARVIS and AgentOS prototypes.</li>
+        </ul>
+        <div class="p-tags">
+          <span class="tag">Next.js</span><span class="tag">React Three Fiber</span>
+          <span class="tag">GSAP</span><span class="tag">Creative coding</span>
+          <span class="tag">Hackathons</span>
         </div>
       </article>
 
@@ -258,8 +322,8 @@
         <div class="skill-items">
           <span class="chip">LLM API integration</span><span class="chip">Routing</span>
           <span class="chip">Agent orchestration</span><span class="chip">Model eval</span>
-          <span class="chip">Benchmarking</span><span class="chip">Prompt engineering</span>
-          <span class="chip">MCP tool use</span>
+          <span class="chip">Benchmarking</span><span class="chip">Quantization</span>
+          <span class="chip">Distillation</span><span class="chip">MCP tool use</span>
         </div>
       </div>
       <div class="skill-card">
@@ -275,13 +339,16 @@
         <div class="skill-items">
           <span class="chip">Next.js</span><span class="chip">React</span>
           <span class="chip">TypeScript</span><span class="chip">Supabase</span>
+          <span class="chip">React Three Fiber</span><span class="chip">GSAP</span>
         </div>
       </div>
       <div class="skill-card">
-        <div class="skill-head"><div class="skill-ico" aria-hidden="true">AU</div><h3>Automation and scraping</h3></div>
+        <div class="skill-head"><div class="skill-ico" aria-hidden="true">AU</div><h3>Automation and media</h3></div>
         <div class="skill-items">
           <span class="chip">Web scraping</span><span class="chip">Browser automation</span>
-          <span class="chip">Cron pipelines</span><span class="chip">HuggingFace</span>
+          <span class="chip">Cron pipelines</span><span class="chip">n8n</span>
+          <span class="chip">Resend</span><span class="chip">Buffer</span>
+          <span class="chip">edge-tts / ffmpeg</span>
         </div>
       </div>
       <div class="skill-card">
@@ -289,7 +356,7 @@
         <div class="skill-items">
           <span class="chip">Linux / Ubuntu</span><span class="chip">System admin</span>
           <span class="chip">Cloudflare Tunnel</span><span class="chip">Cloud deployment</span>
-          <span class="chip">Local servers</span>
+          <span class="chip">Ollama</span><span class="chip">SearXNG</span>
         </div>
       </div>
       <div class="skill-card">
@@ -321,22 +388,32 @@
       <p>Open to collaborations, inference platform clients, and interesting AI engineering problems.</p>
       <div class="contact-links">
         <a href="https://thetrillioniar.me" target="_blank" rel="noopener" class="btn btn-primary" aria-label="Open thetrillioniar.me in a new tab">thetrillioniar.me <span aria-hidden="true">↗</span></a>
+        <a href="mailto:abdulhadijunaidahmedkhan@gmail.com" class="btn btn-ghost">Email</a>
         <a href="https://github.com/Abdulhadi446" target="_blank" rel="noopener" class="btn btn-ghost" aria-label="Open Abdulhadi's GitHub profile in a new tab">GitHub</a>
         <a href="https://www.linkedin.com/in/abdulhadi-junaid-485795378/" target="_blank" rel="noopener" class="btn btn-ghost" aria-label="Open Abdulhadi's LinkedIn profile in a new tab">LinkedIn</a>
+        <a href="https://huggingface.co/thetrillioniar" target="_blank" rel="noopener" class="btn btn-ghost" aria-label="Open Abdulhadi's HuggingFace profile in a new tab">HuggingFace</a>
       </div>
     </div>
   </section>
 
 </div>
 
+<div class="walkthrough-layer" aria-hidden="true">
+  <div class="walkthrough-cursor"><span></span><strong></strong></div>
+</div>
+<div class="sticky-notes" aria-label="Tour notes"></div>
+
 <footer>
   <div class="wrap foot-in">
     <div class="foot-copy">© 2026 Abdulhadi <span>AI engineer and founder</span></div>
     <div class="foot-links">
+      <button type="button" class="foot-tour">Website overview</button>
+      <span class="walkthrough-status" role="status" aria-live="polite"></span>
       <a href="https://thetrillioniar.me" target="_blank" rel="noopener">Website</a>
       <a href="https://sodeom.com" target="_blank" rel="noopener">Sodeom</a>
       <a href="https://blogs.thetrillioniar.me" target="_blank" rel="noopener">Blog</a>
       <a href="https://github.com/Abdulhadi446" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://huggingface.co/thetrillioniar" target="_blank" rel="noopener">HuggingFace</a>
     </div>
   </div>
 </footer>
