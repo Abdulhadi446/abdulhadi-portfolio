@@ -1,5 +1,5 @@
 /* ============================================================
-   styles/forward-deployed-engineer.css  —  design of this track ONLY.
+   styles/forward-deployed-engineer.css - design of this track ONLY.
    Shared chrome/tokens come from styles/base.css (loaded first).
    ============================================================ */
 
@@ -91,6 +91,68 @@
 .proof-strip > a:hover { border-color: var(--accent); }
 
 /* ============================================================
+   HERO DIAGRAM
+   ============================================================ */
+.dossier-diag {
+  background: linear-gradient(165deg, var(--surface-2), var(--surface));
+  border: 1px solid var(--line);
+  border-radius: var(--r-xl);
+  box-shadow: var(--sh-2);
+  overflow: hidden;
+}
+.diag-header {
+  display: flex; align-items: center; gap: 10px;
+  padding: 14px 22px;
+  border-bottom: 1px solid var(--line);
+  font-family: var(--mono); font-size: .72rem; letter-spacing: .14em; text-transform: uppercase;
+  color: var(--text-2);
+}
+.diag-v { margin-left: auto; color: var(--accent); }
+.diag-body {
+  display: grid; grid-template-columns: 1fr auto 1fr; gap: clamp(16px, 3vw, 26px);
+  align-items: center;
+  padding: clamp(20px, 4vw, 30px);
+}
+.diag-col {
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  background: var(--bg-deep);
+  padding: 18px 20px;
+}
+.diag-col-k {
+  font-family: var(--mono); font-size: .7rem; letter-spacing: .16em; text-transform: uppercase;
+  color: var(--accent);
+}
+.diag-list { display: grid; gap: 8px; margin-top: 14px; }
+.diag-list li {
+  color: var(--text-2);
+  font-size: .95rem;
+}
+.diag-bridge {
+  display: grid; justify-items: center; gap: 10px;
+  min-width: 140px;
+}
+.diag-bridge svg { width: 100%; height: 40px; }
+.diag-line { stroke: var(--line-strong); stroke-width: 2; }
+.diag-line-dash { stroke-dasharray: 6 6; }
+.diag-node { fill: var(--text-3); }
+.diag-node-accent { fill: var(--accent); filter: drop-shadow(0 0 12px color-mix(in srgb, var(--accent) 40%, transparent)); }
+.diag-bridge-label {
+  font-family: var(--mono); font-size: .7rem; letter-spacing: .12em; text-transform: uppercase;
+  color: var(--text-3);
+}
+.diag-foot {
+  padding: 18px 22px 22px;
+  border-top: 1px solid var(--line);
+}
+.diag-foot-row {
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px;
+}
+.diag-foot-title { font-size: 1.25rem; }
+.diag-foot-sub { color: var(--text-2); margin-top: 6px; max-width: 46ch; }
+.diag-foot .signal-link { margin-top: 0; }
+
+/* ============================================================
    SECTIONS
    ============================================================ */
 section { padding: clamp(56px, 11vh, 118px) 0; }
@@ -98,6 +160,35 @@ section { padding: clamp(56px, 11vh, 118px) 0; }
 .sec-head h2 { font-size: clamp(1.9rem, 4.4vw, 3rem); letter-spacing: -.025em; }
 .sec-head h2 span { color: var(--text-3); }
 .sec-sub { color: var(--text-2); margin-top: 16px; max-width: 56ch; }
+
+/* ============================================================
+   MIGRATION FLOW
+   ============================================================ */
+.migration-steps {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px;
+}
+.migration-step {
+  position: relative;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--r-lg);
+  padding: clamp(20px, 3vw, 26px);
+  display: grid; gap: 12px;
+  box-shadow: var(--sh-1);
+}
+.migration-step::before {
+  content: "";
+  position: absolute; inset: 0 0 auto 0; height: 2px;
+  background: linear-gradient(90deg, var(--accent) 0%, transparent 70%);
+  border-radius: var(--r-lg) var(--r-lg) 0 0;
+}
+.ms-head { display: flex; align-items: center; gap: 12px; }
+.ms-num {
+  font-family: var(--mono); font-size: .72rem; letter-spacing: .18em;
+  color: var(--accent);
+}
+.migration-step h3 { font-size: 1.25rem; }
+.migration-step p { color: var(--text-2); font-size: .98rem; }
 
 /* ============================================================
    WORK
@@ -165,6 +256,66 @@ section { padding: clamp(56px, 11vh, 118px) 0; }
 .wi-list li::before { content: "▸"; position: absolute; left: 0; top: 0; color: var(--accent); }
 .work-item .work-shot { margin-top: 16px; max-width: 460px; }
 
+/* dossier cards */
+.dossier-card {
+  background: linear-gradient(165deg, var(--surface-2), var(--surface));
+  border: 1px solid var(--line);
+  border-radius: var(--r-xl);
+  box-shadow: var(--sh-2);
+  overflow: hidden;
+  margin-bottom: 18px;
+}
+.dossier-card-head {
+  display: flex; flex-wrap: wrap; align-items: flex-start; justify-content: space-between; gap: 16px;
+  padding: clamp(22px, 4vw, 34px) clamp(22px, 4vw, 38px) 0;
+}
+.dossier-card-k {
+  font-family: var(--mono); font-size: .72rem; letter-spacing: .16em; text-transform: uppercase; color: var(--accent);
+}
+.dossier-card-title { font-size: clamp(1.6rem, 3vw, 2.2rem); margin-top: 10px; }
+.dossier-card-status {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-family: var(--mono); font-size: .72rem; letter-spacing: .12em; text-transform: uppercase; color: var(--text-2);
+}
+.dot {
+  width: 8px; height: 8px; border-radius: 50%; background: var(--accent);
+  box-shadow: 0 0 0 0 var(--accent); animation: pulse 2s infinite;
+}
+.dossier-card-grid {
+  display: grid; grid-template-columns: 1.6fr .9fr; gap: clamp(24px, 4vw, 44px);
+  padding: clamp(18px, 3vw, 28px) clamp(22px, 4vw, 38px) clamp(26px, 4vw, 38px);
+}
+.dossier-card-desc { color: var(--text-2); font-size: 1.02rem; }
+.dossier-blocks { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; margin-top: 22px; }
+.dossier-blocks-compact { grid-template-columns: 1fr; }
+.dossier-block {
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  background: var(--bg-deep);
+  padding: 16px 18px;
+  display: grid; gap: 8px;
+}
+.dossier-block h4 {
+  font-family: var(--mono); font-size: .74rem; letter-spacing: .12em; text-transform: uppercase; color: var(--accent);
+}
+.dossier-block p { color: var(--text-2); font-size: .96rem; }
+.dossier-card-side { display: grid; gap: 16px; align-content: start; }
+.dossier-links { display: flex; flex-wrap: wrap; gap: 14px; }
+
+.dossier-mini {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--r-lg);
+  padding: clamp(22px, 3vw, 30px);
+  display: grid; gap: 14px;
+  box-shadow: var(--sh-1);
+}
+.dossier-mini-head {
+  display: flex; flex-wrap: wrap; align-items: flex-start; justify-content: space-between; gap: 16px;
+}
+.dossier-mini h3 { font-size: clamp(1.3rem, 2.4vw, 1.8rem); margin-top: 8px; }
+.dossier-mini-desc { color: var(--text-2); }
+
 /* project tool (Sodeom search) */
 .project-tool { margin-top: 16px; max-width: 440px; }
 .project-tool label { font-family: var(--mono); font-size: .7rem; letter-spacing: .12em; text-transform: uppercase; color: var(--text-3); }
@@ -207,6 +358,29 @@ section { padding: clamp(56px, 11vh, 118px) 0; }
   font-family: var(--mono); font-size: .72rem; color: var(--text-2);
   background: var(--bg-deep); border: 1px solid var(--line);
   border-radius: var(--r-sm); padding: 6px 11px;
+}
+
+.capability-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;
+}
+.cap-card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--r-lg);
+  padding: clamp(20px, 3vw, 26px);
+  display: grid; gap: 16px;
+  box-shadow: var(--sh-1);
+}
+.cap-card-accent {
+  background: linear-gradient(165deg, var(--accent-dim), var(--surface));
+  border-color: var(--accent-line);
+}
+.cap-head { display: flex; align-items: center; gap: 12px; }
+.cap-list { display: grid; gap: 10px; }
+.cap-list li { color: var(--text-2); position: relative; padding-left: 18px; }
+.cap-list li::before {
+  content: ""; position: absolute; left: 0; top: .6em; width: 6px; height: 6px; border-radius: 50%;
+  background: var(--accent);
 }
 
 /* ============================================================
@@ -277,19 +451,27 @@ section { padding: clamp(56px, 11vh, 118px) 0; }
 
 @media (max-width: 940px) {
   .hero { grid-template-columns: 1fr; align-items: start; }
-  .hero-aside { max-width: 380px; }
+  .hero-aside { max-width: 440px; }
   .wf-grid { grid-template-columns: 1fr; }
+  .dossier-card-grid { grid-template-columns: 1fr; }
+  .migration-steps { grid-template-columns: repeat(2, 1fr); }
+  .dossier-blocks { grid-template-columns: 1fr; }
   .about-grid { grid-template-columns: 1fr; }
   .skills-grid { grid-template-columns: repeat(2, 1fr); }
+  .capability-grid { grid-template-columns: repeat(2, 1fr); }
 }
 @media (max-width: 768px) {
   .wi-head { flex-direction: column; gap: 12px; }
   .edu { grid-template-columns: auto 1fr; }
   .edu-dates { grid-column: 2; }
   .proof-strip > a { margin-left: 0; width: 100%; }
+  .diag-body { grid-template-columns: 1fr; text-align: left; }
+  .diag-bridge { order: -1; }
 }
 @media (max-width: 560px) {
+  .migration-steps { grid-template-columns: 1fr; }
   .skills-grid { grid-template-columns: 1fr; }
+  .capability-grid { grid-template-columns: 1fr; }
   .dossier-row { grid-template-columns: 1fr; gap: 4px; }
   .contact-links .btn { width: 100%; justify-content: center; }
 }

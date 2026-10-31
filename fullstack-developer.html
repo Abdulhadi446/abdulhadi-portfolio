@@ -11,6 +11,21 @@
 <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles/base.css">
 <link rel="stylesheet" href="styles/fullstack-developer.css">
+
+<!-- CDN importmap for this page's scroll-driven WebGL showcase.
+     Three.js r170 + GSAP 3.12.5 + Lenis 1.1.0. Loaded dynamically
+     and guarded: a CDN failure leaves a fully readable static page. -->
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://unpkg.com/three@0.170.0/build/three.module.js",
+    "three/addons/": "https://unpkg.com/three@0.170.0/examples/jsm/",
+    "gsap": "https://esm.sh/gsap@3.12.5",
+    "gsap/ScrollTrigger": "https://esm.sh/gsap@3.12.5/ScrollTrigger",
+    "lenis": "https://unpkg.com/lenis@1.1.0/dist/lenis.mjs"
+  }
+}
+</script>
 </head>
 <body>
 
@@ -45,6 +60,7 @@
 <div class="wrap" id="main">
 
   <header class="hero">
+    <canvas id="webgl" aria-hidden="true"></canvas>
     <div class="hero-copy">
       <p class="eyebrow">Fullstack Developer</p>
       <h1 class="hero-title">Interfaces with <span class="cond">craft</span>.</h1>
@@ -66,7 +82,7 @@
 
   <div class="proof-strip reveal" aria-label="Frontend">
     <span class="proof-k">Frontend</span>
-    <div class="proof-item"><strong data-count="161">161</strong><small>spec&#x27;d variants</small></div><div class="proof-item"><strong data-count="179">179</strong><small>prerendered routes</small></div><div class="proof-item"><strong data-count="66">66</strong><small>public repos</small></div>
+    <div class="proof-item"><strong data-count="161">161</strong><small>spec&#x27;d variants</small></div><div class="proof-item"><strong data-count="179">179</strong><small>prerendered routes</small></div><div class="proof-item"><strong data-count="60">60</strong><small>fps WebGL rendering</small></div>
     <a href="https://github.com/Abdulhadi446" target="_blank" rel="noopener" aria-label="Abdulhadi on GitHub">On GitHub &#8599;</a>
   </div>
 
@@ -98,11 +114,11 @@
       </article>
       <article class="work-item reveal">
         <div class="wi-head">
-          <div><p class="wf-role">Fullstack, 3D</p><h3>Trisonic and Library of Babel</h3><p class="wf-desc">Creative coding with real interaction.</p></div>
-          
+          <div><p class="wf-role">Fullstack, 3D (Lab prototypes)</p><h3>Trisonic and Library of Babel</h3><p class="wf-desc">Experimental interfaces and creative coding prototypes in active development.</p></div>
+          <a href="https://github.com/Abdulhadi446" target="_blank" rel="noopener" class="p-link" aria-label="Follow progress on GitHub">Follow progress <span aria-hidden="true">&#8599;</span></a>
         </div>
-        <ul class="wi-list"><li>Trisonic: a Spotify-style player driven by a conversational AI agent that controls playback.</li><li>3D Library of Babel: the Library of Babel explorable in 3D, with doors.</li><li>An every-model Audi site built by parallel sub-agents, and a Blender city rendered through Blender MCP.</li></ul>
-        <div class="p-tags"><span class="tag">Three.js</span><span class="tag">Generative</span><span class="tag">Creative coding</span><span class="tag">AI control</span></div>
+        <ul class="wi-list"><li>Trisonic (in progress): conversational agent controlling playback and playlist state on a custom Spotify client.</li><li>3D Library of Babel (prototype): Jorge Luis Borges' infinite hexagonal library explorable in 3D WebGL with interactive doors.</li><li>Sub-agent experiments: an interactive multi-model Audi visualizer and procedural city rendering via Blender MCP.</li></ul>
+        <div class="p-tags"><span class="tag">Prototypes</span><span class="tag">Next.js</span><span class="tag">Three.js</span><span class="tag">FastAPI</span><span class="tag">Spotify API</span><span class="tag">MCP</span></div>
       </article>
       <article class="work-item reveal">
         <div class="wi-head">
@@ -117,7 +133,8 @@
 
   <section id="skills">
     <div class="sec-head reveal">
-      <h2>Close to the metal,<br><span>comfortable in the browser.</span></h2>
+      <h2>From clean primitives<br><span>to 60fps WebGL.</span></h2>
+      <p class="sec-sub">Modern frontend architecture, interactive 3D, and robust API design.</p>
     </div>
     <div class="skills-grid reveal">
       <div class="skill-card skill-card-accent">
@@ -160,10 +177,10 @@
       </div>
       <div class="about-side reveal">
         <figure class="portrait">
-          <img src="https://github.com/Abdulhadi446.png" alt="Portrait of Abdulhadi" width="460" height="460" loading="lazy">
+          <img src="assets/portrait.png" alt="Portrait of Abdulhadi" width="460" height="460" loading="lazy">
         </figure>
         <dl class="dossier">
-<div class="dossier-row"><dt>Location</dt><dd>Karachi, Pakistan</dd></div><div class="dossier-row"><dt>Focus</dt><dd>Next.js, React, TypeScript</dd></div><div class="dossier-row"><dt>Stack</dt><dd>React Three Fiber, GSAP, Tailwind</dd></div><div class="dossier-row"><dt>Role</dt><dd>Fullstack developer</dd></div><div class="dossier-row"><dt>Education</dt><dd>Agentic AI, batch 3 at SMIT</dd></div>
+<div class="dossier-row"><dt>Location</dt><dd>Karachi, Pakistan</dd></div><div class="dossier-row"><dt>Focus</dt><dd>Next.js, React, TypeScript</dd></div><div class="dossier-row"><dt>Stack</dt><dd>React Three Fiber, GSAP, Tailwind</dd></div><div class="dossier-row"><dt>Role</dt><dd>Fullstack developer</dd></div><div class="dossier-row"><dt>Email</dt><dd><a href="mailto:abdulhadijunaidahmedkhan@gmail.com">abdulhadijunaidahmedkhan@gmail.com</a></dd></div><div class="dossier-row"><dt>Education</dt><dd>Agentic AI, batch 3 at SMIT</dd></div>
         </dl>
       </div>
     </div>
@@ -173,7 +190,7 @@
     <div class="edu reveal">
       <div class="edu-bar" aria-hidden="true"></div>
       <div class="edu-main">
-        <h2 class="edu-title">Still learning. Always shipping.</h2>
+        <h2 class="edu-title">Engineering rigor meets visual craft.</h2>
         <h3>Agentic AI program, batch 3 at SMIT</h3>
         <p>Specialized program focused on agentic systems, LLM orchestration, and production AI workflows.</p>
       </div>
@@ -183,12 +200,12 @@
 
   <section id="contact">
     <div class="contact-box reveal">
-      <h2>Have a hard problem?<br><em>Let's make it real.</em></h2>
+      <h2>Crafting an ambitious product?<br><em>Let's build it right.</em></h2>
       <p>Open to front-end and fullstack work, product UI, and anything that should feel good to use.</p>
       <div class="contact-links">
 
         <a href="https://thetrillioniar.me" target="_blank" rel="noopener" class="btn btn-primary" aria-label="Open thetrillioniar.me in a new tab">thetrillioniar.me <span aria-hidden="true">&#8599;</span></a>
-        <a href="mailto:abdulhadijunaidahmedkhan@gmail.com" class="btn btn-ghost">Email</a>
+        <a href="mailto:abdulhadijunaidahmedkhan@gmail.com" class="btn btn-ghost" aria-label="Email abdulhadijunaidahmedkhan@gmail.com">Email</a>
         <a href="https://github.com/Abdulhadi446" target="_blank" rel="noopener" class="btn btn-ghost" aria-label="Abdulhadi on GitHub">GitHub</a>
         <a href="https://www.linkedin.com/in/abdulhadi-junaid-485795378/" target="_blank" rel="noopener" class="btn btn-ghost" aria-label="Abdulhadi on LinkedIn">LinkedIn</a>
         <a href="https://huggingface.co/thetrillioniar" target="_blank" rel="noopener" class="btn btn-ghost" aria-label="Abdulhadi on HuggingFace">HuggingFace</a>
@@ -213,5 +230,203 @@
 </footer>
 
 <script src="script.js"></script>
+<script type="module">
+  /* Fullstack Developer track — scroll-driven WebGL showcase.
+     Three.js r170 + GSAP 3.12.5 + Lenis 1.1.0 via importmap CDN.
+     Guarded: a CDN failure leaves a fully readable static page
+     (body.no-webgl shows a CSS fallback). Reduced motion disables
+     Lenis and the scroll choreography — never hijacks scroll. */
+  (async () => {
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const webgl = document.getElementById('webgl');
+    if (!webgl) return;
+    if (reduceMotion.matches) {
+      document.body.classList.add('no-webgl');
+      return;
+    }
+    try {
+      const THREE = await import('three');
+      const { RoomEnvironment } = await import('three/addons/environments/RoomEnvironment.js');
+      const { EffectComposer } = await import('three/addons/postprocessing/EffectComposer.js');
+      const { RenderPass } = await import('three/addons/postprocessing/RenderPass.js');
+      const { UnrealBloomPass } = await import('three/addons/postprocessing/UnrealBloomPass.js');
+      const { ShaderPass } = await import('three/addons/postprocessing/ShaderPass.js');
+      const { OutputPass } = await import('three/addons/postprocessing/OutputPass.js');
+      const gsapMod = await import('gsap');
+      const gsap = gsapMod.default || gsapMod;
+      const STMod = await import('gsap/ScrollTrigger');
+      const ScrollTrigger = STMod.default || STMod;
+      const LenisMod = await import('lenis');
+      const Lenis = LenisMod.default || LenisMod;
+
+      gsap.registerPlugin(ScrollTrigger);
+
+      // ---------- renderer ----------
+      const renderer = new THREE.WebGLRenderer({ canvas: webgl, antialias: true, powerPreference: 'high-performance', stencil: false, depth: true });
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+      renderer.setSize(window.innerWidth, window.innerHeight);
+      renderer.outputColorSpace = THREE.SRGBColorSpace;
+      renderer.toneMapping = THREE.ACESFilmicToneMapping;
+      renderer.toneMappingExposure = 1.1;
+
+      // ---------- scene / camera ----------
+      const scene = new THREE.Scene();
+      scene.background = new THREE.Color(0x05060a);
+      const camera = new THREE.PerspectiveCamera(34, window.innerWidth / window.innerHeight, 0.1, 200);
+      camera.position.set(0, 0, 14);
+
+      // ---------- environment ----------
+      const pmrem = new THREE.PMREMGenerator(renderer);
+      scene.environment = pmrem.fromScene(new RoomEnvironment(), 0.05).texture;
+      pmrem.dispose();
+
+      // ---------- lighting ----------
+      const key = new THREE.DirectionalLight(0xffffff, 1.6); key.position.set(6, 10, 6);
+      const fill = new THREE.DirectionalLight(0x6ea8fe, 0.5); fill.position.set(-6, 3, 4);
+      const rim = new THREE.DirectionalLight(0xffffff, 0.8); rim.position.set(0, 4, -10);
+      scene.add(key, fill, rim);
+
+      // ---------- hero lattice (instanced boxes) ----------
+      const stage = new THREE.Group(); stage.name = 'stage';
+      const count = 26; const spacing = 2.6; const half = count * spacing * 0.5;
+      const geo = new THREE.BoxGeometry(1.6, 1.6, 1.6);
+      const mat = new THREE.MeshStandardMaterial({ color: 0x1d4ed8, metalness: 0.75, roughness: 0.25, envMapIntensity: 1.0 });
+      const inst = new THREE.InstancedMesh(geo, mat, count * count);
+      const dummy = new THREE.Object3D();
+      let i = 0;
+      for (let x = 0; x < count; x++) {
+        for (let y = 0; y < count; y++) {
+          dummy.position.set((x * spacing - half) + (Math.random() - 0.5) * 0.25,
+            (y * spacing - half) + (Math.random() - 0.5) * 0.25,
+            -Math.abs(Math.sin(x * 0.4) * Math.cos(y * 0.4)) * 4);
+          dummy.rotation.set(Math.random(), Math.random(), 0);
+          dummy.updateMatrix();
+          inst.setMatrixAt(i, dummy.matrix);
+          i++;
+        }
+      }
+      inst.instanceMatrix.needsUpdate = true;
+      inst.castShadow = true;
+      stage.add(inst);
+
+      // central focal element
+      const coreGeo = new THREE.IcosahedronGeometry(1.1, 0);
+      const coreMat = new THREE.MeshStandardMaterial({ color: 0x60a5fa, metalness: 0.6, roughness: 0.2, emissive: 0x0b2a5a, emissiveIntensity: 1.5, envMapIntensity: 1.2 });
+      const core = new THREE.Mesh(coreGeo, coreMat);
+      core.position.set(0, 0, -2);
+      stage.add(core);
+
+      scene.add(stage);
+
+      // ---------- composer ----------
+      const hdrTarget = new THREE.WebGLRenderTarget(window.innerWidth, window.innerHeight, { type: THREE.HalfFloatType });
+      const composer = new EffectComposer(renderer, hdrTarget);
+      composer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+      composer.setSize(window.innerWidth, window.innerHeight);
+      composer.addPass(new RenderPass(scene, camera));
+      const bloom = new UnrealBloomPass(new THREE.Vector2(window.innerWidth, window.innerHeight), 0.55, 0.45, 0.85);
+      composer.addPass(bloom);
+      const vignette = new ShaderPass({
+        uniforms: { tDiffuse: { value: null }, uOffset: { value: 0.45 }, uDarkness: { value: 0.5 } },
+        vertexShader: `varying vec2 vUv;void main(){vUv=uv;gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.0);}`,
+        fragmentShader: `uniform sampler2D tDiffuse;uniform float uOffset;uniform float uDarkness;varying vec2 vUv;void main(){vec4 c=texture2D(tDiffuse,vUv);vec2 uv=vUv-0.5;float v=smoothstep(0.75,uOffset,length(uv));gl_FragColor=vec4(mix(c.rgb*(1.0-uDarkness),c.rgb,v),c.a);}`
+      });
+      composer.addPass(vignette);
+      composer.addPass(new OutputPass());
+      const grain = new ShaderPass({
+        uniforms: { tDiffuse: { value: null }, uTime: { value: 0 }, uIntensity: { value: 0.04 } },
+        vertexShader: `varying vec2 vUv;void main(){vUv=uv;gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.0);}`,
+        fragmentShader: `uniform sampler2D tDiffuse;uniform float uTime;uniform float uIntensity;varying vec2 vUv;float rand(vec2 p){return fract(sin(dot(p,vec2(12.9898,78.233)))*43758.5453);}void main(){vec4 c=texture2D(tDiffuse,vUv);float n=rand(vUv+uTime)-0.5;gl_FragColor=vec4(c.rgb+n*uIntensity,c.a);}`
+      });
+      composer.addPass(grain);
+
+      // ---------- lerp state ----------
+      const state = {
+        cameraZ: { current: 14, target: 14, ease: 0.06 },
+        cameraY: { current: 0, target: 0, ease: 0.06 },
+        stageRot: { current: 0, target: 0, ease: 0.05 },
+        mouseX: { current: 0, target: 0, ease: 0.12 },
+        mouseY: { current: 0, target: 0, ease: 0.12 },
+      };
+      function damp(s, dt) {
+        const f = 1 - Math.pow(1 - s.ease, dt * 60);
+        s.current += (s.target - s.current) * f;
+      }
+
+      // ---------- Lenis + ScrollTrigger ----------
+      const lenis = new Lenis({ duration: 1.2, easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), smoothWheel: true, prevent: () => false });
+      lenis.on('scroll', ScrollTrigger.update);
+      gsap.ticker.add((time) => lenis.raf(time * 1000));
+      gsap.ticker.lagSmoothing(0);
+
+      gsap.timeline({
+        scrollTrigger: { trigger: document.body, start: 'top top', end: 'bottom bottom', scrub: true },
+      })
+      .to(state.cameraZ, { target: 6, ease: 'none' }, 0)
+      .to(state.cameraY, { target: -1.2, ease: 'none' }, 0)
+      .to(state.stageRot, { target: Math.PI * 0.5, ease: 'none' }, 0);
+
+      // ---------- mouse parallax ----------
+      window.addEventListener('mousemove', (e) => {
+        state.mouseX.target = (e.clientX / window.innerWidth) * 2 - 1;
+        state.mouseY.target = -((e.clientY / window.innerHeight) * 2 - 1);
+      });
+
+      // ---------- resize ----------
+      let resizePending = false;
+      function onResize() {
+        if (resizePending) return;
+        resizePending = true;
+        requestAnimationFrame(() => {
+          const w = window.innerWidth, h = window.innerHeight;
+          camera.aspect = w / h; camera.updateProjectionMatrix();
+          renderer.setSize(w, h); renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+          composer.setSize(w, h);
+          resizePending = false;
+        });
+      }
+      window.addEventListener('resize', onResize);
+
+      // ---------- visibility ----------
+      const clock = new THREE.Clock();
+      let running = true, rafId = 0;
+      document.addEventListener('visibilitychange', () => {
+        if (document.hidden) { running = false; cancelAnimationFrame(rafId); }
+        else if (!running) { running = true; clock.getDelta(); tick(); }
+      });
+
+      // ---------- tick ----------
+      function tick() {
+        if (!running) return;
+        const delta = Math.min(clock.getDelta(), 0.1);
+        const t = clock.elapsedTime;
+        for (const k in state) damp(state[k], delta);
+
+        camera.position.x = state.mouseX.current * 0.5;
+        camera.position.y = state.cameraY.current + state.mouseY.current * 0.35;
+        camera.position.z = state.cameraZ.current;
+        camera.lookAt(0, 0, -2);
+
+        stage.rotation.y = state.stageRot.current + Math.sin(t * 0.15) * 0.05;
+        stage.rotation.x = Math.cos(t * 0.1) * 0.03;
+        core.rotation.y = t * 0.25;
+        core.rotation.x = t * 0.18;
+        core.position.z = -2 + Math.sin(t * 0.7) * 0.15;
+
+        grain.uniforms.uTime.value = t;
+        composer.render();
+        rafId = requestAnimationFrame(tick);
+      }
+
+      renderer.compile(scene, camera);
+      composer.render(0.016);
+      tick();
+    } catch (err) {
+      // CDN failure or WebGL issue -> static fallback, page stays readable
+      document.body.classList.add('no-webgl');
+      console.warn('[fullstack] WebGL showcase unavailable:', err);
+    }
+  })();
+</script>
 </body>
 </html>

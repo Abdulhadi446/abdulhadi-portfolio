@@ -175,6 +175,8 @@ const runBoot = () => {
 };
 
 if (boot && gateway) {
+  // safety failsafe: never leave a user stuck on boot even on slow execution
+  window.setTimeout(finishBoot, 4500);
   // reduced-motion users skip the whole thing
   runBoot();
   document.getElementById('bootSkip')?.addEventListener('click', finishBoot);

@@ -49,29 +49,55 @@
       <p class="eyebrow">AI Automation Engineer</p>
       <h1 class="hero-title">Agents that <span class="cond">run</span> the business.</h1>
       <p class="lede">Cron-driven agents, content pipelines, and growth automation that keep working after I close the laptop.</p>
+      <ul class="hero-readout" aria-label="How the system runs">
+        <li><span class="hr-k">Scheduler</span><span class="hr-v">cron</span></li>
+        <li><span class="hr-k">Runtime</span><span class="hr-v">gemma4:31b via Ollama</span></li>
+        <li><span class="hr-k">Watchdog</span><span class="hr-v">upptime</span></li>
+      </ul>
       <div class="hero-cta">
         <a href="#work" class="btn btn-primary">See the work <span aria-hidden="true">&#8595;</span></a>
         <a href="#contact" class="text-link">Get in touch</a>
       </div>
     </div>
     <aside class="hero-aside reveal">
-      <div class="signal-card" data-tilt>
-        <div class="signal-top"><span class="live-dot" aria-hidden="true"></span> Always on</div>
-        <h2>Hermes growth loop</h2>
-        <p>Four cron agents running blog, research, outreach, and video on their own.</p>
-        <a href="https://blogs.thetrillioniar.me" target="_blank" rel="noopener" class="signal-link">See the output <span aria-hidden="true">&#8599;</span></a>
+      <div class="scheme" data-tilt>
+        <div class="scheme-head">
+          <span class="live-dot" aria-hidden="true"></span>
+          <span class="scheme-sys">Hermes growth loop</span>
+          <span class="scheme-state">loop active</span>
+        </div>
+        <ol class="scheme-flow">
+          <li class="scheme-node">
+            <p class="node-head"><span class="node-dot" aria-hidden="true"></span><span class="node-name">agent.blog</span><span class="node-cron">daily</span></p>
+            <p class="node-meta">Searches the web for AI news, writes, and auto-publishes the blog.</p>
+          </li>
+          <li class="scheme-node">
+            <p class="node-head"><span class="node-dot" aria-hidden="true"></span><span class="node-name">agent.research</span><span class="node-cron">daily</span></p>
+            <p class="node-meta">Identifies engineering hiring leads from public threads into the lead CSV.</p>
+          </li>
+          <li class="scheme-node">
+            <p class="node-head"><span class="node-dot" aria-hidden="true"></span><span class="node-name">agent.outreach</span><span class="node-cron">daily</span></p>
+            <p class="node-meta">Sends compliant 1-to-1 outreach via Resend with opt-out headers.</p>
+          </li>
+          <li class="scheme-node">
+            <p class="node-head"><span class="node-dot" aria-hidden="true"></span><span class="node-name">agent.video</span><span class="node-cron">daily</span></p>
+            <p class="node-meta">Turns posts into narrated shorts and ships them via Buffer.</p>
+          </li>
+        </ol>
+        <a href="https://blogs.thetrillioniar.me" target="_blank" rel="noopener" class="scheme-link">See the output <span aria-hidden="true">&#8599;</span></a>
       </div>
     </aside>
   </header>
 
-  <div class="proof-strip reveal" aria-label="Pipeline">
-    <span class="proof-k">Pipeline</span>
-    <div class="proof-item"><strong data-count="103">103</strong><small>articles auto-published</small></div><div class="proof-item"><strong data-count="4">4</strong><small>cron agents</small></div><div class="proof-item"><strong data-count="66">66</strong><small>public repos</small></div>
+  <div class="proof-strip reveal" aria-label="Pipeline telemetry">
+    <span class="proof-k"><span class="live-dot" aria-hidden="true"></span>Telemetry</span>
+    <div class="proof-item"><strong data-count="103">103</strong><small>articles auto-published</small></div><div class="proof-item"><strong data-count="4">4</strong><small>cron agents</small></div><div class="proof-item"><strong data-count="12">12</strong><small>scheduled runs / day</small></div>
     <a href="https://blogs.thetrillioniar.me" target="_blank" rel="noopener" aria-label="Abdulhadi&#x27;s automated blog">Read the blog &#8599;</a>
   </div>
 
   <section id="work">
     <div class="sec-head reveal">
+      <p class="sec-tag"><span class="sec-node" aria-hidden="true"></span>Module: pipelines</p>
       <h2>Set it running.<br><span>It keeps running.</span></h2>
       <p class="sec-sub">Pipelines that write, research, reach out, and publish without a human in the loop.</p>
     </div>
@@ -81,7 +107,10 @@
           <p class="wf-role">Automation, growth</p>
           <h3>Hermes growth loop</h3>
           <p class="wf-desc">Cron-driven agents running the Trillionir and Sodeom growth loop.</p>
-          <ul class="wf-list"><li>Blog agent searches the web for AI news and auto-publishes posts to blogs.thetrillioniar.me.</li><li>Research agent hunts founders' emails from sources like Hacker News hiring posts and writes a daily lead CSV.</li><li>Outreach agent reads that file and cold-emails each lead through Resend with the self-hosted-models pitch, sending them to the B2B form.</li><li>Video agent turns JS animations into short videos and posts them via Buffer. All agents run on gemma4:31b from Ollama, and an n8n flow mirrors daily commit activity to LinkedIn.</li></ul>
+          <div class="stage-strip" aria-label="Lead flow, from source to the B2B form">
+            <span class="stage-chip">Hiring posts</span><span class="stage-arr" aria-hidden="true">&#8594;</span><span class="stage-chip">Lead CSV</span><span class="stage-arr" aria-hidden="true">&#8594;</span><span class="stage-chip">Targeted email</span><span class="stage-arr" aria-hidden="true">&#8594;</span><span class="stage-chip">B2B form</span>
+          </div>
+          <ul class="wf-list"><li>Blog agent searches the web for AI news and auto-publishes posts to blogs.thetrillioniar.me.</li><li>Research agent parses public hiring posts (e.g. Hacker News hiring threads) to extract active engineering leads into a structured CSV.</li><li>Outreach agent reads that pipeline and delivers targeted 1-to-1 outreach via Resend with strict opt-out headers, directing leads to the B2B form.</li><li>Video agent turns JS animations into short videos and posts them via Buffer. All agents run on gemma4:31b from Ollama, and an n8n flow mirrors daily commit activity to LinkedIn.</li></ul>
           <div class="p-tags"><span class="tag">Hermes</span><span class="tag">Cron agents</span><span class="tag">Resend</span><span class="tag">Ollama</span><span class="tag">n8n</span><span class="tag">Buffer</span></div>
         </div>
         <div class="wf-side"><figure class="work-shot"><img src="assets/work-b2b.png" alt="The Trillionir business tier page that the outreach funnel sends leads to" width="960" height="600" loading="lazy"></figure><div class="project-metric"><strong>4</strong><span>agents on<br>a schedule</span></div><a href="https://b2b-sodeom.netlify.app/" target="_blank" rel="noopener" class="p-link" aria-label="The Trillionir B2B form">B2B form <span aria-hidden="true">&#8599;</span></a></div>
@@ -107,7 +136,7 @@
       <article class="work-item reveal">
         <div class="wi-head">
           <div><p class="wf-role">Automation, ops</p><h3>Pipeline plumbing</h3><p class="wf-desc">The unglamorous glue that keeps it all alive.</p></div>
-          
+
         </div>
         <ul class="wi-list"><li>Runs upptime to monitor the visibility and uptime of every property he ships.</li><li>Uses n8n to mirror commit activity to LinkedIn, and claude-code-installer style tooling to keep agent environments reproducible.</li><li>Browser automation and web scraping feed research agents without hand-collected data.</li></ul>
         <div class="p-tags"><span class="tag">n8n</span><span class="tag">Upptime</span><span class="tag">Browser automation</span><span class="tag">Web scraping</span><span class="tag">Observability</span></div>
@@ -117,7 +146,9 @@
 
   <section id="skills">
     <div class="sec-head reveal">
-      <h2>Close to the metal,<br><span>comfortable in the browser.</span></h2>
+      <p class="sec-tag"><span class="sec-node" aria-hidden="true"></span>Module: stack</p>
+      <h2>Scheduled triggers,<br><span>zero-touch execution.</span></h2>
+      <p class="sec-sub">Autonomous cron agents, resilient pipelines, and tool orchestration.</p>
     </div>
     <div class="skills-grid reveal">
       <div class="skill-card skill-card-accent">
@@ -149,6 +180,7 @@
 
   <section id="about">
     <div class="sec-head reveal">
+      <p class="sec-tag"><span class="sec-node" aria-hidden="true"></span>Module: operator</p>
       <h2>Nothing runs<br><span>twice.</span></h2>
     </div>
     <div class="about-grid">
@@ -160,35 +192,37 @@
       </div>
       <div class="about-side reveal">
         <figure class="portrait">
-          <img src="https://github.com/Abdulhadi446.png" alt="Portrait of Abdulhadi" width="460" height="460" loading="lazy">
+          <img src="assets/portrait.png" alt="Portrait of Abdulhadi" width="460" height="460" loading="lazy">
         </figure>
         <dl class="dossier">
-<div class="dossier-row"><dt>Location</dt><dd>Karachi, Pakistan</dd></div><div class="dossier-row"><dt>Focus</dt><dd>Agents and automation</dd></div><div class="dossier-row"><dt>Blog</dt><dd><a href="https://blogs.thetrillioniar.me" target="_blank" rel="noopener">blogs.thetrillioniar.me</a></dd></div><div class="dossier-row"><dt>Role</dt><dd>AI automation engineer</dd></div><div class="dossier-row"><dt>Education</dt><dd>Agentic AI, batch 3 at SMIT</dd></div>
+<div class="dossier-row"><dt>Location</dt><dd>Karachi, Pakistan</dd></div><div class="dossier-row"><dt>Focus</dt><dd>Agents and automation</dd></div><div class="dossier-row"><dt>Blog</dt><dd><a href="https://blogs.thetrillioniar.me" target="_blank" rel="noopener">blogs.thetrillioniar.me</a></dd></div><div class="dossier-row"><dt>Role</dt><dd>AI automation engineer</dd></div><div class="dossier-row"><dt>Email</dt><dd><a href="mailto:abdulhadijunaidahmedkhan@gmail.com">abdulhadijunaidahmedkhan@gmail.com</a></dd></div><div class="dossier-row"><dt>Education</dt><dd>Agentic AI, batch 3 at SMIT</dd></div>
         </dl>
       </div>
     </div>
   </section>
 
   <section id="education">
-    <div class="edu reveal">
+    <p class="sec-tag reveal"><span class="sec-node" aria-hidden="true"></span>Module: training</p>
+    <article class="edu reveal">
       <div class="edu-bar" aria-hidden="true"></div>
       <div class="edu-main">
-        <h2 class="edu-title">Still learning. Always shipping.</h2>
+        <h2 class="edu-title">Agent architecture and production orchestration.</h2>
         <h3>Agentic AI program, batch 3 at SMIT</h3>
         <p>Specialized program focused on agentic systems, LLM orchestration, and production AI workflows.</p>
       </div>
       <div class="edu-dates">Dec 2025 - Aug 2026</div>
-    </div>
+    </article>
   </section>
 
   <section id="contact">
     <div class="contact-box reveal">
-      <h2>Have a hard problem?<br><em>Let's make it real.</em></h2>
-      <p>Open to automation engineering, agent pipeline work, and systems that should run themselves.</p>
+      <p class="contact-status"><span class="live-dot" aria-hidden="true"></span>Open for automation work</p>
+      <h2>Have a manual workflow?<br><em>Let's automate it.</em></h2>
+      <p class="contact-lede">Open to automation engineering, cron-driven agent pipelines, and systems that run unattended.</p>
       <div class="contact-links">
 
         <a href="https://thetrillioniar.me" target="_blank" rel="noopener" class="btn btn-primary" aria-label="Open thetrillioniar.me in a new tab">thetrillioniar.me <span aria-hidden="true">&#8599;</span></a>
-        <a href="mailto:abdulhadijunaidahmedkhan@gmail.com" class="btn btn-ghost">Email</a>
+        <a href="mailto:abdulhadijunaidahmedkhan@gmail.com" class="btn btn-ghost" aria-label="Email abdulhadijunaidahmedkhan@gmail.com">Email</a>
         <a href="https://github.com/Abdulhadi446" target="_blank" rel="noopener" class="btn btn-ghost" aria-label="Abdulhadi on GitHub">GitHub</a>
         <a href="https://www.linkedin.com/in/abdulhadi-junaid-485795378/" target="_blank" rel="noopener" class="btn btn-ghost" aria-label="Abdulhadi on LinkedIn">LinkedIn</a>
         <a href="https://huggingface.co/thetrillioniar" target="_blank" rel="noopener" class="btn btn-ghost" aria-label="Abdulhadi on HuggingFace">HuggingFace</a>

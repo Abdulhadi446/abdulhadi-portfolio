@@ -1,7 +1,13 @@
 /* ============================================================
-   styles/fullstack-developer.css  —  design of this track ONLY.
+   styles/fullstack-developer.css  —  Fullstack track design ONLY.
    Shared chrome/tokens come from styles/base.css (loaded first).
+   This page is the visual showpiece: a scroll-driven WebGL hero
+   (Three.js r170 + GSAP 3.12.5 + Lenis 1.1.0) with a static CSS
+   fallback when WebGL/CDN is unavailable.
    ============================================================ */
+
+/* ---- Lenis owns smooth scroll on this page; never 'smooth' ---- */
+html { scroll-behavior: auto !important; }
 
 /* ============================================================
    BUTTONS / LINKS
@@ -25,13 +31,47 @@
 .text-link:hover { color: var(--accent); border-color: var(--accent); }
 
 /* ============================================================
-   HERO
+   WEBGL HERO CANVAS (scroll-driven showcase)
+   ============================================================ */
+#webgl {
+  position: fixed;
+  inset: 0;
+  width: 100%; height: 100%;
+  z-index: 0;
+  pointer-events: none;
+  background: #05060a;
+}
+body.no-webgl #webgl { display: none !important; }
+
+/* Static (no-WebGL) fallback: a subtle abstract field so the hero
+   is never empty. Reads as intentional, not broken. */
+body.no-webgl .hero::before {
+  content: "";
+  position: absolute; inset: 0; z-index: 0;
+  background:
+    radial-gradient(700px 500px at 15% 0%, rgba(96,165,250,.14), transparent 48%),
+    radial-gradient(500px 400px at 85% 20%, rgba(96,165,250,.08), transparent 40%),
+    linear-gradient(180deg, #05060a, #08090b);
+  pointer-events: none;
+}
+
+/* ============================================================
+   HERO — canvas sits behind copy; overlay keeps text readable
    ============================================================ */
 .hero {
+  position: relative;
+  z-index: 2;
   padding: clamp(48px, 9vh, 96px) 0 clamp(30px, 5vh, 52px);
   display: grid; grid-template-columns: 1.6fr .8fr; gap: clamp(28px, 5vw, 60px);
   align-items: end;
 }
+.hero::before {
+  content: "";
+  position: absolute; inset: 0; z-index: 0;
+  background: linear-gradient(180deg, rgba(5,6,10,.18), rgba(5,6,10,.42) 55%, #05060a 85%);
+  pointer-events: none;
+}
+.hero > * { position: relative; z-index: 2; }
 .hero-copy { min-width: 0; }
 .hero-title {
   font-size: clamp(2.5rem, 6.5vw, 4.6rem);
@@ -267,6 +307,9 @@ section { padding: clamp(56px, 11vh, 118px) 0; }
 .contact-box > p { color: var(--text-2); margin-top: 16px; max-width: 48ch; margin-inline: auto; }
 .contact-links { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; margin-top: 30px; }
 
+/* ============================================================
+   HERO ENTRANCE (motion allowed only)
+   ============================================================ */
 .js .hero-copy > * { opacity: 0; animation: riseIn .8s cubic-bezier(.2,.7,.3,1) forwards; }
 .js .hero-copy > *:nth-child(1) { animation-delay: .05s; }
 .js .hero-copy > *:nth-child(2) { animation-delay: .15s; }
@@ -274,7 +317,15 @@ section { padding: clamp(56px, 11vh, 118px) 0; }
 .js .hero-copy > *:nth-child(4) { animation-delay: .35s; }
 @keyframes riseIn { from { opacity: 0; transform: translateY(22px); } to { opacity: 1; transform: none; } }
 
+/* GSAP scroll reveals (motion allowed only). Initial hidden state
+   is applied by JS when ScrollTrigger is ready; reduced motion
+   shows them immediately. */
+.js .gsap-up { opacity: 0; transform: translateY(30px) scale(.96); pointer-events: none; }
+.js .gsap-up.in { opacity: 1; transform: none; pointer-events: auto; }
 
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
 @media (max-width: 940px) {
   .hero { grid-template-columns: 1fr; align-items: start; }
   .hero-aside { max-width: 380px; }
@@ -293,7 +344,12 @@ section { padding: clamp(56px, 11vh, 118px) 0; }
   .dossier-row { grid-template-columns: 1fr; gap: 4px; }
   .contact-links .btn { width: 100%; justify-content: center; }
 }
+
+/* ============================================================
+   REDUCED MOTION — quiet the choreography, never hijack scroll
+   ============================================================ */
 @media (prefers-reduced-motion: reduce) {
   .js .hero-copy > * { opacity: 1 !important; animation: none !important; }
   .live-dot { animation: none !important; }
+  .js .gsap-up { opacity: 1 !important; transform: none !important; pointer-events: auto !important; }
 }
