@@ -1,0 +1,40 @@
+# Abdulhadi Junaid
+
+> AI Engineer, Founder, and Systems Builder based in Karachi, Pakistan. Specialized in 1.58-bit ternary quantization, autonomous cron agent architectures, LLM inference routing, and fullstack interactive WebGL systems.
+
+## Summary
+
+Abdulhadi is a software engineer and founder with three years of hands-on experience building machine learning systems, autonomous agent pipelines, and high-performance web applications. He completed the Agentic AI program (Batch 3) at Saylani Mass IT Training (SMIT) and builds products end to end: from low-level model weights and quantization kernels to production interfaces and automated distribution loops.
+
+## Primary Roles and Tracks
+
+- **AI/ML Engineer**: Focused on extreme quantization (1.58-bit ternary, BitNet b1.58), student-teacher distillation, and rigorous model benchmarking via openbench. Published checkpoints on HuggingFace and benchmarked tiers on Kaggle 2xT4 hardware.
+- **AI Automation Engineer**: Designs zero-human-in-the-loop cron agents running on self-hosted models (Ollama, gemma4:31b). Built the Hermes growth engine handling automated research, content publishing, video creation, and RFC-compliant outreach.
+- **Founder**: Founded and operates Trillionir AI (a predictable flat-rate LLM inference API with OpenAI/Anthropic SDK routing) and Sodeom (a private search engine running on SearXNG).
+- **Fullstack Developer**: Builds production frontends with Next.js 16, React 19, TypeScript, Tailwind v4, and interactive 3D WebGL scenes using React Three Fiber, GSAP ScrollTrigger, and Lenis.
+- **Forward Deployed Engineer**: Executes drop-in AI integrations into customer environments: scoping compute spend, swapping base URLs with zero client code changes, hardening deployments with Docker and Cloudflare Tunnel, and delivering operational handoffs.
+
+## Flagship Products and Open Source
+
+- **Trillionir AI** (https://thetrillioniar.me): Predictable flat-rate LLM inference API with OpenAI and Anthropic compatible routing. Features a live Community Hub with open benchmarks (https://social.thetrillioniar.me).
+- **Sodeom** (https://sodeom.com): Zero-tracking, privacy-first search engine across web, images, video, and news.
+- **TriMind & quant-it** (https://huggingface.co/thetrillioniar): Open-source quantization research repository, featuring Qwen3-8B-1Q, 1-bit ternary post-training transformation tools, and MoE-aware batch streaming.
+- **Porsche 911 Showcase** (https://github.com/Abdulhadi446/porsches): Fullstack showcase built on Next.js 16, React 19, React Three Fiber, Lenis, and Cloudflare R2 media with 179 prerendered routes.
+- **Automated Blog Engine** (https://blogs.thetrillioniar.me): Fully autonomous publication pipeline with over 100 auto-researched, written, and published technical posts.
+
+## Verified Links and Entity References
+
+- Portfolio Website: https://abdulhadi-sodeom.netlify.app/
+- GitHub Profile: https://github.com/Abdulhadi446
+- Hugging Face Profile: https://huggingface.co/thetrillioniar
+- LinkedIn Profile: https://www.linkedin.com/in/abdulhadi-junaid-485795378/
+- Platform Telemetry: https://social.thetrillioniar.me/
+- Email Contact: abdulhadijunaidahmedkhan@gmail.com
+- Location: Karachi, Pakistan
+
+## Technical Stack
+
+- **Machine Learning**: PyTorch, Transformers, Safetensors, LLaMA-Factory, TRL, Unsloth, BitNet, PEFT/QLoRA, openbench, ModernBERT.
+- **Agents and Automation**: Ollama, Hermes, n8n, Resend, Buffer, ffmpeg, edge-tts, Cron, systemd, MCP (Model Context Protocol).
+- **Web and Frontend**: Next.js 16, React 19, TypeScript, Tailwind CSS, Three.js, React Three Fiber, GSAP, Lenis.
+- **Backend and Infrastructure**: Python, FastAPI, Docker, Cloudflare Tunnel, Linux (Ubuntu), SQLite, Supabase, SearXNG.
