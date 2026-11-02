@@ -103,6 +103,7 @@
     <div class="nav-links">
       <a href="#work">Work</a>
       <a href="#skills">Skills</a>
+      <a href="#education">Education</a>
       <a href="#about">About</a>
       <a href="#contact">Contact</a>
     </div>
@@ -115,6 +116,7 @@
   <div class="mobile-menu" id="mobile-menu">
     <a href="#work">Work</a>
     <a href="#skills">Skills</a>
+    <a href="#education">Education</a>
     <a href="#about">About</a>
     <a href="#contact">Contact</a>
     <a href="index.html">All tracks</a>
@@ -181,7 +183,7 @@
           <div><p class="wf-role">Fullstack, 3D (Lab prototypes)</p><h3>Trisonic and Library of Babel</h3><p class="wf-desc">Experimental interfaces and creative coding prototypes in active development.</p></div>
           <a href="https://github.com/Abdulhadi446" target="_blank" rel="noopener" class="p-link" aria-label="Follow progress on GitHub">Follow progress <span aria-hidden="true">&#8599;</span></a>
         </div>
-        <ul class="wi-list"><li>Trisonic (in progress): conversational agent controlling playback and playlist state on a custom Spotify client.</li><li>3D Library of Babel (prototype): Jorge Luis Borges' infinite hexagonal library explorable in 3D WebGL with interactive doors.</li><li>Sub-agent experiments: an interactive multi-model Audi visualizer and procedural city rendering via Blender MCP.</li></ul>
+        <ul class="wi-list"><li><a href="https://github.com/Abdulhadi446/trisonic" target="_blank" rel="noopener">Trisonic</a> (in progress): conversational agent controlling playback and playlist state on a custom Spotify client.</li><li>3D Library of Babel (prototype): Jorge Luis Borges' infinite hexagonal library explorable in 3D WebGL with interactive doors.</li><li>Sub-agent experiments: an interactive multi-model Audi visualizer (in progress) and procedural city rendering via <a href="https://github.com/Abdulhadi446/blender-city-map" target="_blank" rel="noopener" aria-label="Blender city map repository">Blender MCP</a>.</li></ul>
         <div class="p-tags"><span class="tag">Prototypes</span><span class="tag">Next.js</span><span class="tag">Three.js</span><span class="tag">FastAPI</span><span class="tag">Spotify API</span><span class="tag">MCP</span></div>
       </article>
       <article class="work-item reveal">
@@ -295,11 +297,11 @@
 
 <script src="script.js"></script>
 <script type="module">
-  /* Fullstack Developer track — scroll-driven WebGL showcase.
+  /* Fullstack Developer track: scroll-driven WebGL showcase.
      Three.js r170 + GSAP 3.12.5 + Lenis 1.1.0 via importmap CDN.
      Guarded: a CDN failure leaves a fully readable static page
      (body.no-webgl shows a CSS fallback). Reduced motion disables
-     Lenis and the scroll choreography — never hijacks scroll. */
+     Lenis and the scroll choreography: never hijacks scroll. */
   (async () => {
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
     const webgl = document.getElementById('webgl');

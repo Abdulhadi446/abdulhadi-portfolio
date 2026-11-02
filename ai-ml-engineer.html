@@ -87,6 +87,7 @@
     <div class="nav-links">
       <a href="#work">Work</a>
       <a href="#skills">Skills</a>
+      <a href="#education">Education</a>
       <a href="#about">About</a>
       <a href="#contact">Contact</a>
     </div>
@@ -99,6 +100,7 @@
   <div class="mobile-menu" id="mobile-menu">
     <a href="#work">Work</a>
     <a href="#skills">Skills</a>
+    <a href="#education">Education</a>
     <a href="#about">About</a>
     <a href="#contact">Contact</a>
     <a href="index.html">All tracks</a>
@@ -117,12 +119,32 @@
         <a href="#contact" class="text-link">Get in touch</a>
       </div>
     </div>
-    <aside class="hero-aside reveal">
-      <div class="signal-card" data-tilt>
-        <div class="signal-top"><span class="live-dot" aria-hidden="true"></span> Open-source research</div>
-        <h2>TriMind</h2>
-        <p>BitNet and ternary quantization, distilled and benchmarked in the open.</p>
-        <a href="https://huggingface.co/thetrillioniar" target="_blank" rel="noopener" class="signal-link">See the models <span aria-hidden="true">&#8599;</span></a>
+
+    <aside class="hero-aside reveal" data-tilt>
+      <dl class="specimen">
+        <div class="spec-row"><dt>Subject</dt><dd>Qwen3-8B, 8B parameters</dd></div>
+        <div class="spec-row"><dt>Target</dt><dd>1.58-bit ternary weights</dd></div>
+        <div class="spec-row"><dt>Bench</dt><dd>Kaggle 2xT4, LLaMA-Factory + TRL</dd></div>
+      </dl>
+      <figure class="ladder">
+        <figcaption class="fig-cap">fig / weight precision, fp32 to ternary</figcaption>
+        <div class="ladder-rows">
+          <div class="ladder-row"><span class="lk">FP32</span><span class="lt"><span class="lb" style="--w:100%"></span></span><span class="lv">32.0</span></div>
+          <div class="ladder-row"><span class="lk">INT4</span><span class="lt"><span class="lb" style="--w:12.5%"></span></span><span class="lv">4.0</span></div>
+          <div class="ladder-row"><span class="lk">INT2</span><span class="lt"><span class="lb" style="--w:6.25%"></span></span><span class="lv">2.0</span></div>
+          <div class="ladder-row"><span class="lk">Q2_K</span><span class="lt"><span class="lb" style="--w:6.75%"></span></span><span class="lv">~2.16</span></div>
+          <div class="ladder-row is-signal"><span class="lk">BitNet</span><span class="lt"><span class="lb" style="--w:4.94%"></span></span><span class="lv">1.58</span></div>
+        </div>
+        <div class="ladder-axis" aria-hidden="true"><span>0</span><span>8</span><span>16</span><span>24</span><span>32</span></div>
+        <p class="ladder-unit">bits per weight</p>
+      </figure>
+      <div class="panel-foot">
+        <span class="live-dot" aria-hidden="true"></span>
+        <div class="panel-foot-copy">
+          <h2>TriMind</h2>
+          <p>BitNet and ternary quantization, distilled and benchmarked in the open.</p>
+        </div>
+        <a href="https://huggingface.co/thetrillioniar" target="_blank" rel="noopener" class="signal-link" aria-label="Abdulhadi models on HuggingFace">See the models <span aria-hidden="true">&#8599;</span></a>
       </div>
     </aside>
   </header>
@@ -147,33 +169,50 @@
           <ul class="wf-list"><li>Compared Qwen3-8B quantization tiers, FP32, INT4, INT2, Q2_K, and BitNet, on Kaggle 2xT4 using LLaMA-Factory and TRL.</li><li>Built quant-it, a 1-bit and ternary quantization tool that is MoE-aware, with expert batch streaming and STE distillation, tuned for 2x T4 and 32GB RAM.</li><li>Published thetrillioniar/Qwen3-8B-1Q and gemma-4-12b-bitnet on HuggingFace as pullable checkpoints.</li><li>Shipped trimind-bitnet, a post-training pipeline that swaps every nn.Linear for a TernaryLinear with hardware auto-detect across CUDA, TPU, and CPU.</li></ul>
           <div class="p-tags"><span class="tag">Quantization</span><span class="tag">BitNet</span><span class="tag">ternary</span><span class="tag">LLaMA-Factory</span><span class="tag">TRL</span><span class="tag">PyTorch</span><span class="tag">Unsloth</span></div>
         </div>
-        <div class="wf-side"><figure class="work-shot"><img src="assets/work-trillionir.jpg" alt="The Trillionir AI homepage showing open-source models behind one API" width="960" height="600" loading="lazy"></figure><div class="project-metric"><strong>1.58</strong><span>bit ternary<br>weights</span></div><a href="https://huggingface.co/thetrillioniar" target="_blank" rel="noopener" class="p-link" aria-label="Abdulhadi on HuggingFace">HuggingFace <span aria-hidden="true">&#8599;</span></a></div>
+        <div class="wf-side">
+          <figure class="work-shot">
+            <img src="assets/work-trillionir.jpg" alt="The Trillionir AI homepage showing open-source models behind one API" width="960" height="600" loading="lazy">
+            <figcaption class="shot-cap">fig / the trillionir homepage: open-source models behind one API</figcaption>
+          </figure>
+          <div class="project-metric"><strong>1.58</strong><span>bit ternary<br>weights</span></div>
+          <a href="https://huggingface.co/thetrillioniar" target="_blank" rel="noopener" class="p-link" aria-label="Abdulhadi on HuggingFace">HuggingFace <span aria-hidden="true">&#8599;</span></a>
+        </div>
       </div>
     </article>
     <div class="work-list">
       <article class="work-item reveal">
-        <div class="wi-head">
-          <div><p class="wf-role">Distillation</p><h3>Distillation datasets</h3><p class="wf-desc">Teacher to student, turned into clean training data.</p></div>
-          <a href="https://huggingface.co/thetrillioniar" target="_blank" rel="noopener" class="p-link" aria-label="Abdulhadi datasets on HuggingFace">Datasets <span aria-hidden="true">&#8599;</span></a>
+        <div class="wi-grid">
+          <p class="wf-role">Distillation</p>
+          <div class="wi-body">
+            <h3>Distillation datasets</h3>
+            <p class="wf-desc">Teacher to student, turned into clean training data.</p>
+            <ul class="wi-list"><li>Built a 1.5M-row instruction dataset formatted for OpenAI and Anthropic fine-tuning APIs across 29 open benchmark sources (including GSM8K, IFEval, HumanEval, and SWE-bench Pro).</li><li>Curated the Mythos and Fable evaluation dataset in standard chat completion format, adopted by an external research team for training validation.</li><li>Ran QLoRA fine-tuning on Kimi-VL-A3B-Thinking, prepared a GLM-5.2 distillation pipeline, and distilled Qwen3.6-35B-A3B down to Falcon 3B.</li></ul>
+            <div class="p-tags"><span class="tag">Distillation</span><span class="tag">QLoRA</span><span class="tag">PEFT</span><span class="tag">OpenAI format</span><span class="tag">HuggingFace</span></div>
+            <a href="https://huggingface.co/thetrillioniar" target="_blank" rel="noopener" class="p-link" aria-label="Abdulhadi datasets on HuggingFace">Datasets <span aria-hidden="true">&#8599;</span></a>
+          </div>
         </div>
-        <ul class="wi-list"><li>Built a 1.5M-row instruction dataset formatted for OpenAI and Anthropic fine-tuning APIs across 29 open benchmark sources (including GSM8K, IFEval, HumanEval, and SWE-bench Pro).</li><li>Curated the Mythos and Fable evaluation dataset in standard chat completion format, adopted by an external research team for training validation.</li><li>Ran QLoRA fine-tuning on Kimi-VL-A3B-Thinking, prepared a GLM-5.2 distillation pipeline, and distilled Qwen3.6-35B-A3B down to Falcon 3B.</li></ul>
-        <div class="p-tags"><span class="tag">Distillation</span><span class="tag">QLoRA</span><span class="tag">PEFT</span><span class="tag">OpenAI format</span><span class="tag">HuggingFace</span></div>
       </article>
       <article class="work-item reveal">
-        <div class="wi-head">
-          <div><p class="wf-role">Evaluation</p><h3>Model evaluation</h3><p class="wf-desc">Benchmarks that tell you if compression actually cost anything.</p></div>
-          
+        <div class="wi-grid">
+          <p class="wf-role">Evaluation</p>
+          <div class="wi-body">
+            <h3>Model evaluation</h3>
+            <p class="wf-desc">Benchmarks that tell you if compression actually cost anything.</p>
+            <ul class="wi-list"><li>Built a RULER-inspired benchmark measuring how retrieval affects long-context performance across three cloud LLMs on retrieval, reasoning, and aggregation.</li><li>Runs an openbench evaluation pipeline against a custom OpenAI-compatible proxy, covering Gemma 4 31B, Devstral 24B, and SmolLM 135M.</li><li>Shipped the Trillionir Decision API: a self-hosted verdict-151m ModernBERT classifier returning calibrated probabilities with an abstention option.</li></ul>
+            <div class="p-tags"><span class="tag">openbench</span><span class="tag">RULER</span><span class="tag">ModernBERT</span><span class="tag">Benchmarking</span><span class="tag">Calibration</span></div>
+          </div>
         </div>
-        <ul class="wi-list"><li>Built a RULER-inspired benchmark measuring how retrieval affects long-context performance across three cloud LLMs on retrieval, reasoning, and aggregation.</li><li>Runs an openbench evaluation pipeline against a custom OpenAI-compatible proxy, covering Gemma 4 31B, Devstral 24B, and SmolLM 135M.</li><li>Shipped the Trillionir Decision API: a self-hosted verdict-151m ModernBERT classifier returning calibrated probabilities with an abstention option.</li></ul>
-        <div class="p-tags"><span class="tag">openbench</span><span class="tag">RULER</span><span class="tag">ModernBERT</span><span class="tag">Benchmarking</span><span class="tag">Calibration</span></div>
       </article>
       <article class="work-item reveal">
-        <div class="wi-head">
-          <div><p class="wf-role">Efficient systems</p><h3>omnimodel</h3><p class="wf-desc">A multimodal system that fits in 1GB of RAM.</p></div>
-          
+        <div class="wi-grid">
+          <p class="wf-role">Efficient systems</p>
+          <div class="wi-body">
+            <h3>omnimodel</h3>
+            <p class="wf-desc">A multimodal system that fits in 1GB of RAM.</p>
+            <ul class="wi-list"><li>Built a multimodal pipeline handling text, image, audio, video, and PDF on 1GB RAM hardware.</li><li>Focus on serving constrained environments rather than datacenter GPUs.</li></ul>
+            <div class="p-tags"><span class="tag">Multimodal</span><span class="tag">Efficient inference</span><span class="tag">Python</span></div>
+          </div>
         </div>
-        <ul class="wi-list"><li>Built a multimodal pipeline handling text, image, audio, video, and PDF on 1GB RAM hardware.</li><li>Focus on serving constrained environments rather than datacenter GPUs.</li></ul>
-        <div class="p-tags"><span class="tag">Multimodal</span><span class="tag">Efficient inference</span><span class="tag">Python</span></div>
       </article>
     </div>
   </section>
@@ -183,31 +222,33 @@
       <h2>From floating point<br><span>down to ternary weights.</span></h2>
       <p class="sec-sub">Quantization, distillation, and rigorous model evaluation.</p>
     </div>
-    <div class="skills-grid reveal">
-      <div class="skill-card skill-card-accent">
-        <div class="skill-head"><div class="skill-ico" aria-hidden="true">AI</div><h3>Core ML</h3></div>
-        <div class="skill-items"><span class="chip">Quantization</span><span class="chip">Distillation</span><span class="chip">Model evaluation</span><span class="chip">Benchmarking</span><span class="chip">BitNet / ternary</span><span class="chip">QLoRA / PEFT</span></div>
+    <div class="spec-wrap reveal">
+      <table class="spec-table">
+        <caption class="fig-cap">fig / capability matrix, by domain</caption>
+        <thead>
+          <tr><th scope="col">Domain</th><th scope="col">Instruments</th></tr>
+        </thead>
+        <tbody>
+          <tr class="is-signal"><th scope="row">Core ML</th><td><span class="chip">Quantization</span><span class="chip">Distillation</span><span class="chip">Model evaluation</span><span class="chip">Benchmarking</span><span class="chip">BitNet / ternary</span><span class="chip">QLoRA / PEFT</span></td></tr>
+          <tr><th scope="row">Training</th><td><span class="chip">PyTorch</span><span class="chip">LLaMA-Factory</span><span class="chip">TRL</span><span class="chip">Unsloth</span><span class="chip">DeepSpeed</span><span class="chip">Kaggle 2xT4</span></td></tr>
+          <tr><th scope="row">HuggingFace</th><td><span class="chip">Transformers</span><span class="chip">Safetensors</span><span class="chip">Model cards</span><span class="chip">Dataset publishing</span><span class="chip">Fine-tuning JSONL</span></td></tr>
+          <tr><th scope="row">ML systems</th><td><span class="chip">FastAPI</span><span class="chip">OpenAI SDK</span><span class="chip">Calibrated classifiers</span><span class="chip">Serving</span><span class="chip">Routing</span></td></tr>
+          <tr><th scope="row">Evaluation</th><td><span class="chip">openbench</span><span class="chip">RULER-style RAG</span><span class="chip">Long-context</span><span class="chip">Abstention</span></td></tr>
+          <tr><th scope="row">Also</th><td><span class="chip">MoE</span><span class="chip">Expert batching</span><span class="chip">Small models</span><span class="chip">Model selection</span><span class="chip">Python</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="education">
+    <div class="edu reveal">
+      <div class="edu-bar" aria-hidden="true"></div>
+      <div class="edu-main">
+        <h2 class="edu-title">Deep learning foundations. Applied ML research.</h2>
+        <h3>Agentic AI program, batch 3 at SMIT</h3>
+        <p>Specialized program focused on agentic systems, LLM orchestration, and production AI workflows.</p>
       </div>
-      <div class="skill-card">
-        <div class="skill-head"><div class="skill-ico" aria-hidden="true">TR</div><h3>Training</h3></div>
-        <div class="skill-items"><span class="chip">PyTorch</span><span class="chip">LLaMA-Factory</span><span class="chip">TRL</span><span class="chip">Unsloth</span><span class="chip">DeepSpeed</span><span class="chip">Kaggle 2xT4</span></div>
-      </div>
-      <div class="skill-card">
-        <div class="skill-head"><div class="skill-ico" aria-hidden="true">HF</div><h3>HuggingFace</h3></div>
-        <div class="skill-items"><span class="chip">Transformers</span><span class="chip">Safetensors</span><span class="chip">Model cards</span><span class="chip">Dataset publishing</span><span class="chip">Fine-tuning JSONL</span></div>
-      </div>
-      <div class="skill-card">
-        <div class="skill-head"><div class="skill-ico" aria-hidden="true">BE</div><h3>ML systems</h3></div>
-        <div class="skill-items"><span class="chip">FastAPI</span><span class="chip">OpenAI SDK</span><span class="chip">Calibrated classifiers</span><span class="chip">Serving</span><span class="chip">Routing</span></div>
-      </div>
-      <div class="skill-card">
-        <div class="skill-head"><div class="skill-ico" aria-hidden="true">EV</div><h3>Evaluation</h3></div>
-        <div class="skill-items"><span class="chip">openbench</span><span class="chip">RULER-style RAG</span><span class="chip">Long-context</span><span class="chip">Abstention</span></div>
-      </div>
-      <div class="skill-card">
-        <div class="skill-head"><div class="skill-ico" aria-hidden="true">+</div><h3>Also</h3></div>
-        <div class="skill-items"><span class="chip">MoE</span><span class="chip">Expert batching</span><span class="chip">Small models</span><span class="chip">Model selection</span><span class="chip">Python</span></div>
-      </div>
+      <div class="edu-dates">Dec 2025 - Aug 2026</div>
     </div>
   </section>
 
@@ -225,6 +266,7 @@
       <div class="about-side reveal">
         <figure class="portrait">
           <img src="assets/portrait.png" alt="Portrait of Abdulhadi" width="460" height="460" loading="lazy">
+          <figcaption class="shot-cap">fig / subject, karachi, pk</figcaption>
         </figure>
         <dl class="dossier">
 <div class="dossier-row"><dt>Location</dt><dd>Karachi, Pakistan</dd></div><div class="dossier-row"><dt>Focus</dt><dd>Quantization and small models</dd></div><div class="dossier-row"><dt>Models</dt><dd><a href="https://huggingface.co/thetrillioniar" target="_blank" rel="noopener">thetrillioniar on HuggingFace</a></dd></div><div class="dossier-row"><dt>Role</dt><dd>AI/ML engineer</dd></div><div class="dossier-row"><dt>Email</dt><dd><a href="mailto:abdulhadijunaidahmedkhan@gmail.com">abdulhadijunaidahmedkhan@gmail.com</a></dd></div><div class="dossier-row"><dt>Education</dt><dd>Agentic AI, batch 3 at SMIT</dd></div>
@@ -233,24 +275,11 @@
     </div>
   </section>
 
-  <section id="education">
-    <div class="edu reveal">
-      <div class="edu-bar" aria-hidden="true"></div>
-      <div class="edu-main">
-        <h2 class="edu-title">Deep learning foundations. Applied ML research.</h2>
-        <h3>Agentic AI program, batch 3 at SMIT</h3>
-        <p>Specialized program focused on agentic systems, LLM orchestration, and production AI workflows.</p>
-      </div>
-      <div class="edu-dates">Dec 2025 - Aug 2026</div>
-    </div>
-  </section>
-
   <section id="contact">
     <div class="contact-box reveal">
       <h2>Have an inference bottleneck?<br><em>Let's optimize it.</em></h2>
       <p>Open to ML engineering roles, quantization and evaluation contracts, and open-source research.</p>
       <div class="contact-links">
-
         <a href="https://thetrillioniar.me" target="_blank" rel="noopener" class="btn btn-primary" aria-label="Open thetrillioniar.me in a new tab">thetrillioniar.me <span aria-hidden="true">&#8599;</span></a>
         <a href="mailto:abdulhadijunaidahmedkhan@gmail.com" class="btn btn-ghost" aria-label="Email abdulhadijunaidahmedkhan@gmail.com">Email</a>
         <a href="https://github.com/Abdulhadi446" target="_blank" rel="noopener" class="btn btn-ghost" aria-label="Abdulhadi on GitHub">GitHub</a>

@@ -12,6 +12,14 @@ Fully static, multi-page portfolio. No build step, no package manager, no depend
   - `styles/<page>.css` (five files, one per role page) — that page's ENTIRE section design (hero, proof, work, skills, education, about, contact). Each role page loads `base.css` then its own file. **Ownership**: the five role stylesheets are each owned by that page's redesign pass; do not edit another page's file casually, and never push design changes through `base.css` when they belong to one page.
 - `script.js` — vanilla JS, end of `<body>`; zero network calls. Hosts reveals, menu, scroll-spy, proof-strip count-up, boot sequence, **and the site-wide keyboard layer** (see Keyboard navigation).
 - `generate_pages.py` — **legacy/stale**: it once generated the five role pages from one template, but the pages have since diverged into independent designs. **Do not run it** (it would overwrite them). The HTML files are the source of truth; delete the generator only if the owner asks.
+
+Each role page carries its own art direction (redesigned independently on purpose; do not homogenize them). They share only `base.css` tokens, the nav/footer/keyboard contracts, and the per-role accent hue:
+
+- `ai-ml-engineer` — "research instrument / lab paper": specimen-label hero, a CSS compression-ladder figure, ruler-tick section edges, `sec /` and `fig /` mono annotations, work as hairline rows, skills as a capability table.
+- `ai-automation-engineer` — "pipeline control room": live 4-node Hermes-loop schematic in the hero, mono telemetry readout, left rail spine into `MODULE:` tags, LED status pulses (CSS-only, frozen under reduced motion).
+- `founder` — "Apple product page": oversized display type with a light-weight `.cond` moment, full-bleed product panels, spec-sheet proof grid, amber used sparingly.
+- `fullstack-developer` — "scroll-driven WebGL showcase": the only page allowed CDN Three.js + GSAP + Lenis, guarded with a no-CDN / reduced-motion fallback.
+- `forward-deployed-engineer` — "enterprise integration dossier": real DOM/CSS/SVG migration diagram, structured case studies, capability index.
 - `assets/work-*.{png,jpg}` — product screenshots used in the Work sections.
 
 There is no lint, typecheck, or test command. Do not add tooling unless asked.
@@ -61,7 +69,7 @@ Redesign, October 2026. The site embodies Abdulhadi's work (reducing huge noisy 
 - **Liquid Glass discipline (two-layer rule)**: glass (`backdrop-filter`) belongs ONLY on the floating `nav` (class scoped as `.nav-shell > nav` — a bare `nav { }` selector leaks the header's `height`/`align-items` onto the gateway's `<nav class="roles">` and breaks its grid; keep it scoped). Content cards use opaque `--surface` + soft shadow, never blur.
 - **Terminal boot**: `#boot` is a client-side sequence (8 `bootLines`, animated `#bootFill`/`#bootPct`) that ends by adding `boot.done` + `gateway.show`. Skip via `#bootSkip` / Enter / Space. Reduced motion skips it.
 - **Copy rules the owner enforces site-wide**: zero em-dashes or en-dashes in any visible string (periods, commas, colons, hyphens); no numbered section eyebrows (`01 /`); middle-dot is rare, no clusters of `·`; one label per CTA intent.
-- **The portrait** in About is hotlinked from `https://github.com/Abdulhadi446.png`. Only external image; vendor it if offline matters.
+- **The portrait** is self-hosted at `assets/portrait.png` (460x460). Do NOT reintroduce the old `https://github.com/Abdulhadi446.png` hotlink; every page references the local file.
 - **Work screenshots** are dated captures of the live sites (October 2026), headless chromium + ImageMagick crop. TriageDesk intentionally has no shot (no public URL). Keep the `assets/` folder well under 1MB total.
 
 ## Conventions that are easy to get wrong
