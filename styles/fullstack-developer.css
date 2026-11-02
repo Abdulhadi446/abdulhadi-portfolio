@@ -34,7 +34,7 @@ html { scroll-behavior: auto !important; }
    WEBGL HERO CANVAS (scroll-driven showcase)
    ============================================================ */
 #webgl {
-  position: fixed;
+  position: absolute;
   inset: 0;
   width: 100%; height: 100%;
   z-index: 0;
@@ -42,6 +42,7 @@ html { scroll-behavior: auto !important; }
   background: #05060a;
 }
 body.no-webgl #webgl { display: none !important; }
+html[data-role="fullstack"] section:target { opacity: 1 !important; transform: none !important; }
 
 /* Static (no-WebGL) fallback: a subtle abstract field so the hero
    is never empty. Reads as intentional, not broken. */
@@ -73,6 +74,14 @@ body.no-webgl .hero::before {
 }
 .hero > * { position: relative; z-index: 2; }
 .hero-copy { min-width: 0; }
+.wrap > .proof-strip,
+.wrap > section {
+  position: relative;
+  z-index: 3;
+  background: var(--bg);
+}
+.wrap > .proof-strip { background: var(--bg); }
+html[data-role="fullstack"] section[id] { scroll-margin-top: 92px; }
 .hero-title {
   font-size: clamp(2.5rem, 6.5vw, 4.6rem);
   font-weight: 600; letter-spacing: -.03em; margin-top: 22px;
@@ -322,6 +331,7 @@ section { padding: clamp(56px, 11vh, 118px) 0; }
    shows them immediately. */
 .js .gsap-up { opacity: 0; transform: translateY(30px) scale(.96); pointer-events: none; }
 .js .gsap-up.in { opacity: 1; transform: none; pointer-events: auto; }
+html[data-role="fullstack"].js .reveal { opacity: 1; transform: none; }
 
 /* ============================================================
    RESPONSIVE
