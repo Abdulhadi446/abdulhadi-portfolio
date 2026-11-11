@@ -382,6 +382,12 @@ section { padding: clamp(56px, 11vh, 118px) 0; }
   content: ""; position: absolute; left: 0; top: .6em; width: 6px; height: 6px; border-radius: 50%;
   background: var(--accent);
 }
+.cap-list a {
+  color: inherit; text-decoration: underline;
+  text-underline-offset: 3px; text-decoration-color: var(--line-strong);
+  transition: text-decoration-color .2s;
+}
+.cap-list a:hover { text-decoration-color: var(--accent); }
 
 /* ============================================================
    EDUCATION

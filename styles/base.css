@@ -123,6 +123,10 @@ body.boot-lock { overflow: hidden; }
 h1, h2, h3 { line-height: 1.05; letter-spacing: -.02em; font-weight: 600; }
 .cond { font-weight: 300; color: var(--text-2); }
 
+/* skill chips that link out to the tool's own site */
+a.chip { transition: color .2s, border-color .2s; }
+a.chip:hover { color: var(--text); border-color: var(--line-strong); }
+
 /* ============================================================
    NAV — floating Liquid Glass (the only glass)
    ============================================================ */

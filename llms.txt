@@ -21,6 +21,8 @@ Abdulhadi is a software engineer and founder with three years of hands-on experi
 - **TriMind & quant-it** (https://huggingface.co/thetrillioniar): Open-source quantization research repository, featuring Qwen3-8B-1Q, 1-bit ternary post-training transformation tools, and MoE-aware batch streaming.
 - **Porsche 911 Showcase** (https://github.com/Abdulhadi446/porsches): Fullstack showcase built on Next.js 16, React 19, React Three Fiber, Lenis, and Cloudflare R2 media with 179 prerendered routes.
 - **Automated Blog Engine** (https://blogs.thetrillioniar.me): Fully autonomous publication pipeline with over 100 auto-researched, written, and published technical posts.
+- **Car Aura Collector** (https://github.com/Abdulhadi446/image-collector): LangGraph agent that plans, harvests, rates, and saves one car shoot four times a day, publishing to a Flask gallery (https://vistacars.thetrillioniar.me) and an Instagram carousel through Make.com.
+- **LangChain agents** (https://github.com/Abdulhadi446/langchain): Fact-checked answer agent with a structured retry loop, plus blogs-langchain (https://github.com/Abdulhadi446/blogs-langchain), a web research agent that returns cited answers.
 
 ## Verified Links and Entity References
 
@@ -35,6 +37,6 @@ Abdulhadi is a software engineer and founder with three years of hands-on experi
 ## Technical Stack
 
 - **Machine Learning**: PyTorch, Transformers, Safetensors, LLaMA-Factory, TRL, Unsloth, BitNet, PEFT/QLoRA, openbench, ModernBERT.
-- **Agents and Automation**: Ollama, Hermes, n8n, Resend, Buffer, ffmpeg, edge-tts, Cron, systemd, MCP (Model Context Protocol).
+- **Agents and Automation**: LangChain, LangGraph, Make.com, Ollama, Hermes, n8n, Resend, Buffer, ffmpeg, edge-tts, Cron, systemd, MCP (Model Context Protocol).
 - **Web and Frontend**: Next.js 16, React 19, TypeScript, Tailwind CSS, Three.js, React Three Fiber, GSAP, Lenis.
 - **Backend and Infrastructure**: Python, FastAPI, Docker, Cloudflare Tunnel, Linux (Ubuntu), SQLite, Supabase, SearXNG.

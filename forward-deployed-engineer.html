@@ -270,6 +270,80 @@
       <article class="dossier-mini reveal">
         <header class="dossier-mini-head">
           <div>
+            <p class="dossier-card-k">Scheduled agent, deployed</p>
+            <h3>Car Aura Collector</h3>
+          </div>
+          <p class="dossier-card-status"><span class="dot" aria-hidden="true"></span> In production</p>
+        </header>
+        <p class="dossier-mini-desc">A LangGraph agent that shoots one car four times a day on a VPS, with no laptop in the loop.</p>
+        <div class="dossier-blocks dossier-blocks-compact">
+          <section class="dossier-block">
+            <h4>Graph</h4>
+            <p>StateGraph: plan &#8594; harvest &#8594; rate &#8594; save, with a conditional edge back to harvest when portrait shots run short. ddgs search with a 640px floor, watermark and AI-art blocklists, and perceptual-hash dedupe.</p>
+          </section>
+          <section class="dossier-block">
+            <h4>Deployment</h4>
+            <p>Systemd timers at 00:00, 06:00, 12:00 and 18:00 UTC, a git commit per batch, a Flask gallery, and a Cloudflare tunnel. Planning and rating started on Sodeom AI and Gemma-4 on Ollama Cloud, then moved to an OpenAI-compatible endpoint and a local rater.</p>
+          </section>
+          <section class="dossier-block">
+            <h4>Distribution</h4>
+            <p>A Make.com scenario picks up the daily shoot and posts it as an Instagram carousel.</p>
+          </section>
+        </div>
+        <ul class="p-tags"><li class="tag">LangGraph</li><li class="tag">Make.com</li><li class="tag">Python</li><li class="tag">Flask</li><li class="tag">Ollama</li></ul>
+        <div class="dossier-links">
+          <a href="https://vistacars.thetrillioniar.me" target="_blank" rel="noopener" class="p-link" aria-label="Vista Cars live gallery">Live gallery <span aria-hidden="true">&#8599;</span></a>
+          <a href="https://github.com/Abdulhadi446/image-collector" target="_blank" rel="noopener" class="p-link" aria-label="Car Aura Collector repository">Repo <span aria-hidden="true">&#8599;</span></a>
+          <a href="https://www.instagram.com/vistacarz/" target="_blank" rel="noopener" class="p-link" aria-label="Vista Cars on Instagram">Instagram <span aria-hidden="true">&#8599;</span></a>
+        </div>
+      </article>
+      <article class="dossier-mini reveal">
+        <header class="dossier-mini-head">
+          <div>
+            <p class="dossier-card-k">Agent integration</p>
+            <h3>LangChain Q&amp;A agent</h3>
+          </div>
+          <p class="dossier-card-status"><span class="dot" aria-hidden="true"></span> Public repo</p>
+        </header>
+        <p class="dossier-mini-desc">An answer agent plus a fact-checker, wired to a drop-in OpenAI-compatible endpoint.</p>
+        <div class="dossier-blocks dossier-blocks-compact">
+          <section class="dossier-block">
+            <h4>Loop</h4>
+            <p>The answer agent drafts, the fact-checker returns a structured true or false verdict, and a false verdict sends the draft back with corrections. Three attempts, then it stops.</p>
+          </section>
+          <section class="dossier-block">
+            <h4>Surface</h4>
+            <p>Runs on Sodeom at sodeom.com/v1 with the beam model, so the base URL is the only thing tying it to a provider.</p>
+          </section>
+        </div>
+        <ul class="p-tags"><li class="tag">LangChain</li><li class="tag">Python</li><li class="tag">Sodeom</li></ul>
+        <a href="https://github.com/Abdulhadi446/langchain" target="_blank" rel="noopener" class="p-link p-link-foot" aria-label="LangChain Q and A agent repository">Repo <span aria-hidden="true">&#8599;</span></a>
+      </article>
+      <article class="dossier-mini reveal">
+        <header class="dossier-mini-head">
+          <div>
+            <p class="dossier-card-k">Research agent</p>
+            <h3>blogs-langchain</h3>
+          </div>
+          <p class="dossier-card-status"><span class="dot" aria-hidden="true"></span> Public repo</p>
+        </header>
+        <p class="dossier-mini-desc">A web research agent that returns a cited answer, not a confident guess.</p>
+        <div class="dossier-blocks dossier-blocks-compact">
+          <section class="dossier-block">
+            <h4>Research</h4>
+            <p>Queries Sodeom, fetches the top results, strips scripts and styles, and converts each page to Markdown before the model reads it.</p>
+          </section>
+          <section class="dossier-block">
+            <h4>Verification</h4>
+            <p>The LangChain agent drafts a sourced answer, a fact-checker returns a structured verdict, and a failed check retries with corrections before the answer is written out.</p>
+          </section>
+        </div>
+        <ul class="p-tags"><li class="tag">LangChain</li><li class="tag">Python</li><li class="tag">Sodeom</li></ul>
+        <a href="https://github.com/Abdulhadi446/blogs-langchain" target="_blank" rel="noopener" class="p-link p-link-foot" aria-label="blogs-langchain repository">Repo <span aria-hidden="true">&#8599;</span></a>
+      </article>
+      <article class="dossier-mini reveal">
+        <header class="dossier-mini-head">
+          <div>
             <p class="dossier-card-k">Support orchestration</p>
             <h3>TriageDesk</h3>
           </div>
@@ -371,6 +445,7 @@
           <li>OpenAI SDK</li>
           <li>Anthropic API</li>
           <li>Ollama API</li>
+          <li><a href="https://www.make.com" target="_blank" rel="noopener" aria-label="Make.com automation platform">Make.com</a></li>
           <li>Proxies</li>
           <li>Webhooks</li>
           <li>REST</li>
@@ -410,6 +485,8 @@
         <ul class="cap-list">
           <li>FastAPI</li>
           <li>Multi-agent</li>
+          <li><a href="https://www.langchain.com" target="_blank" rel="noopener" aria-label="LangChain">LangChain</a></li>
+          <li><a href="https://www.langchain.com/langgraph" target="_blank" rel="noopener" aria-label="LangGraph">LangGraph</a></li>
           <li>Python</li>
           <li>JWT</li>
           <li>API key scoping</li>

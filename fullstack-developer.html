@@ -172,6 +172,33 @@
     <div class="work-list">
       <article class="work-item reveal">
         <div class="wi-head">
+          <div><p class="wf-role">Fullstack, agents</p><h3>Car Aura Collector</h3><p class="wf-desc">An agent that fills a gallery, and the Flask app that serves it.</p></div>
+          <a href="https://vistacars.thetrillioniar.me" target="_blank" rel="noopener" class="p-link" aria-label="Vista Cars live gallery">Live gallery <span aria-hidden="true">&#8599;</span></a>
+        </div>
+        <ul class="wi-list"><li>The gallery is a Flask app: archive, shoot detail with a lightbox, a motion page, and a JSON API for each shoot.</li><li>Served from a VPS behind a Cloudflare tunnel, with bare-date URLs 301-redirecting to the newest hour slot so old links keep working.</li><li>The pipeline behind it is a LangGraph StateGraph (plan, harvest, rate, save) that commits each batch straight into the repo the app reads, and a Make.com scenario posts the daily carousel to Instagram.</li></ul>
+        <div class="p-tags"><span class="tag">LangGraph</span><span class="tag">Make.com</span><span class="tag">Flask</span><span class="tag">Python</span><span class="tag">Cloudflare Tunnel</span></div>
+        <div class="p-links">
+          <a href="https://github.com/Abdulhadi446/image-collector" target="_blank" rel="noopener" class="p-link" aria-label="Car Aura Collector repository">Repo <span aria-hidden="true">&#8599;</span></a>
+        </div>
+      </article>
+      <article class="work-item reveal">
+        <div class="wi-head">
+          <div><p class="wf-role">Fullstack, AI backend</p><h3>LangChain Q&amp;A agent</h3><p class="wf-desc">Two agents, one loop, and a base URL you can point anywhere.</p></div>
+          <a href="https://github.com/Abdulhadi446/langchain" target="_blank" rel="noopener" class="p-link" aria-label="LangChain Q and A agent repository">Repo <span aria-hidden="true">&#8599;</span></a>
+        </div>
+        <ul class="wi-list"><li>The answer agent drafts, a separate fact-checker returns a structured true or false verdict, and a false verdict sends the draft back with corrections.</li><li>Capped at three attempts, so the loop always terminates.</li><li>Talks to Sodeom's OpenAI-compatible endpoint, so swapping the base URL moves the whole thing to another model.</li></ul>
+        <div class="p-tags"><span class="tag">LangChain</span><span class="tag">Python</span><span class="tag">Sodeom</span></div>
+      </article>
+      <article class="work-item reveal">
+        <div class="wi-head">
+          <div><p class="wf-role">Fullstack, research</p><h3>blogs-langchain</h3><p class="wf-desc">Search, fetch, clean, answer, check: the whole dossier is built before the model sees it.</p></div>
+          <a href="https://github.com/Abdulhadi446/blogs-langchain" target="_blank" rel="noopener" class="p-link" aria-label="blogs-langchain repository">Repo <span aria-hidden="true">&#8599;</span></a>
+        </div>
+        <ul class="wi-list"><li>Pulls results from Sodeom, fetches the top pages, strips scripts and styles, and converts the HTML to Markdown.</li><li>The LangChain agent writes a cited answer from that dossier, and a fact-checker retries with corrections before it is saved.</li></ul>
+        <div class="p-tags"><span class="tag">LangChain</span><span class="tag">Python</span><span class="tag">Sodeom</span></div>
+      </article>
+      <article class="work-item reveal">
+        <div class="wi-head">
           <div><p class="wf-role">Fullstack, product</p><h3>chat-to-video and paperclip</h3><p class="wf-desc">Hackathon-speed AI apps from a reusable project template.</p></div>
           
         </div>
@@ -213,11 +240,11 @@
       </div>
       <div class="skill-card">
         <div class="skill-head"><div class="skill-ico" aria-hidden="true">BE</div><h3>Backend</h3></div>
-        <div class="skill-items"><span class="chip">FastAPI</span><span class="chip">REST API design</span><span class="chip">Supabase</span><span class="chip">Webhooks</span><span class="chip">Background jobs</span></div>
+        <div class="skill-items"><span class="chip">FastAPI</span><span class="chip">REST API design</span><a class="chip" href="https://www.langchain.com" target="_blank" rel="noopener" aria-label="LangChain">LangChain</a><a class="chip" href="https://www.langchain.com/langgraph" target="_blank" rel="noopener" aria-label="LangGraph">LangGraph</a><span class="chip">Supabase</span><span class="chip">Webhooks</span><span class="chip">Background jobs</span></div>
       </div>
       <div class="skill-card">
         <div class="skill-head"><div class="skill-ico" aria-hidden="true">DX</div><h3>Tooling</h3></div>
-        <div class="skill-items"><span class="chip">Next.js 16</span><span class="chip">React 19</span><span class="chip">Vercel</span><span class="chip">GitHub Actions</span><span class="chip">Playwright</span><span class="chip">Node 24</span></div>
+        <div class="skill-items"><span class="chip">Next.js 16</span><span class="chip">React 19</span><span class="chip">Vercel</span><span class="chip">GitHub Actions</span><span class="chip">Playwright</span><span class="chip">Node 24</span><a class="chip" href="https://www.make.com" target="_blank" rel="noopener" aria-label="Make.com automation platform">Make.com</a></div>
       </div>
       <div class="skill-card">
         <div class="skill-head"><div class="skill-ico" aria-hidden="true">MEDIA</div><h3>Media</h3></div>

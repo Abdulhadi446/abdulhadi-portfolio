@@ -182,6 +182,45 @@
     <div class="work-list">
       <article class="work-item reveal">
         <div class="wi-grid">
+          <p class="wf-role">Agent graph</p>
+          <div class="wi-body">
+            <h3>Car Aura Collector</h3>
+            <p class="wf-desc">A LangGraph agent that picks one car, hunts its shoot across the web, and keeps ten frames.</p>
+            <ul class="wi-list"><li>StateGraph with plan, harvest, rate and save nodes, plus a conditional edge back to harvest when portrait shots run short.</li><li>ddgs harvest with a 640px floor, watermark and AI-art blocklists, and perceptual-hash dedupe on every candidate.</li><li>Rating started on Gemma-4 on Ollama Cloud, scoring aura and flagging real photos versus renders, before the graph moved to a local rater.</li><li>Four unattended runs a day, one git commit per batch, and a Flask gallery that serves the archive.</li></ul>
+            <div class="p-tags"><span class="tag">LangGraph</span><span class="tag">Make.com</span><span class="tag">Python</span><span class="tag">Flask</span><span class="tag">Ollama</span></div>
+            <div class="p-links">
+              <a href="https://vistacars.thetrillioniar.me" target="_blank" rel="noopener" class="p-link" aria-label="Vista Cars live gallery">Live gallery <span aria-hidden="true">&#8599;</span></a>
+              <a href="https://github.com/Abdulhadi446/image-collector" target="_blank" rel="noopener" class="p-link" aria-label="Car Aura Collector repository">Repo <span aria-hidden="true">&#8599;</span></a>
+            </div>
+          </div>
+        </div>
+      </article>
+      <article class="work-item reveal">
+        <div class="wi-grid">
+          <p class="wf-role">Agent verification</p>
+          <div class="wi-body">
+            <h3>LangChain Q&amp;A agent</h3>
+            <p class="wf-desc">An answer agent with a separate fact-checker that can reject the draft.</p>
+            <ul class="wi-list"><li>Two agents in one loop: the answer agent drafts, the fact-checker returns a structured true or false verdict, and a false verdict sends the draft back with corrections.</li><li>The loop stops on approval or after three attempts, so a bad answer cannot spin forever.</li><li>Runs on Sodeom's OpenAI-compatible endpoint at sodeom.com/v1 with the beam model.</li></ul>
+            <div class="p-tags"><span class="tag">LangChain</span><span class="tag">Python</span><span class="tag">Sodeom</span></div>
+            <a href="https://github.com/Abdulhadi446/langchain" target="_blank" rel="noopener" class="p-link" aria-label="LangChain Q and A agent repository">Repo <span aria-hidden="true">&#8599;</span></a>
+          </div>
+        </div>
+      </article>
+      <article class="work-item reveal">
+        <div class="wi-grid">
+          <p class="wf-role">Agent research</p>
+          <div class="wi-body">
+            <h3>blogs-langchain</h3>
+            <p class="wf-desc">A research agent that returns a cited, fact-checked answer instead of a confident guess.</p>
+            <ul class="wi-list"><li>Searches Sodeom, fetches the top pages, strips scripts and styles, and converts the HTML to clean Markdown.</li><li>The LangChain agent drafts from that dossier, and the fact-checker retries with corrections before the answer is written out.</li><li>Both the LLM and the search come from Sodeom, so there is one vendor in the loop.</li></ul>
+            <div class="p-tags"><span class="tag">LangChain</span><span class="tag">Python</span><span class="tag">Sodeom</span></div>
+            <a href="https://github.com/Abdulhadi446/blogs-langchain" target="_blank" rel="noopener" class="p-link" aria-label="blogs-langchain repository">Repo <span aria-hidden="true">&#8599;</span></a>
+          </div>
+        </div>
+      </article>
+      <article class="work-item reveal">
+        <div class="wi-grid">
           <p class="wf-role">Distillation</p>
           <div class="wi-body">
             <h3>Distillation datasets</h3>
@@ -234,6 +273,7 @@
           <tr><th scope="row">HuggingFace</th><td><span class="chip">Transformers</span><span class="chip">Safetensors</span><span class="chip">Model cards</span><span class="chip">Dataset publishing</span><span class="chip">Fine-tuning JSONL</span></td></tr>
           <tr><th scope="row">ML systems</th><td><span class="chip">FastAPI</span><span class="chip">OpenAI SDK</span><span class="chip">Calibrated classifiers</span><span class="chip">Serving</span><span class="chip">Routing</span></td></tr>
           <tr><th scope="row">Evaluation</th><td><span class="chip">openbench</span><span class="chip">RULER-style RAG</span><span class="chip">Long-context</span><span class="chip">Abstention</span></td></tr>
+          <tr><th scope="row">Agent systems</th><td><a class="chip" href="https://www.langchain.com" target="_blank" rel="noopener" aria-label="LangChain">LangChain</a><a class="chip" href="https://www.langchain.com/langgraph" target="_blank" rel="noopener" aria-label="LangGraph">LangGraph</a><span class="chip">MCP tool use</span><span class="chip">OpenAI-compatible endpoints</span></td></tr>
           <tr><th scope="row">Also</th><td><span class="chip">MoE</span><span class="chip">Expert batching</span><span class="chip">Small models</span><span class="chip">Model selection</span><span class="chip">Python</span></td></tr>
         </tbody>
       </table>

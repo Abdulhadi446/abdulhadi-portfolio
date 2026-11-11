@@ -212,6 +212,7 @@ section { padding: clamp(56px, 11vh, 118px) 0; }
 .wi-list { margin-top: 18px; display: grid; gap: 11px; }
 .wi-list li { position: relative; padding-left: 22px; color: var(--text-2); font-size: .94rem; line-height: 1.5; }
 .wi-list li::before { content: "▸"; position: absolute; left: 0; top: 0; color: var(--accent); }
+.p-links { display: flex; flex-wrap: wrap; gap: 18px; margin-top: 18px; }
 .work-item .work-shot { margin-top: 16px; max-width: 460px; }
 
 /* project tool (Sodeom search) */

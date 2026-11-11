@@ -173,7 +173,7 @@
           <h3>Hermes growth loop</h3>
           <p class="wf-desc">Cron-driven agents running the Trillionir and Sodeom growth loop.</p>
           <div class="stage-strip" aria-label="Lead flow, from source to the B2B form">
-            <span class="stage-chip">Hiring posts</span><span class="stage-arr" aria-hidden="true">&#8594;</span><span class="stage-chip">Lead CSV</span><span class="stage-arr" aria-hidden="true">&#8594;</span><span class="stage-chip">Targeted email</span><span class="stage-arr" aria-hidden="true">&#8594;</span><span class="stage-chip">B2B form</span>
+            <span class="stage-step"><span class="stage-chip">Hiring posts</span><span class="stage-arr" aria-hidden="true">&#8594;</span></span><span class="stage-step"><span class="stage-chip">Lead CSV</span><span class="stage-arr" aria-hidden="true">&#8594;</span></span><span class="stage-step"><span class="stage-chip">Targeted email</span><span class="stage-arr" aria-hidden="true">&#8594;</span></span><span class="stage-step"><span class="stage-chip">B2B form</span></span>
           </div>
           <ul class="wf-list"><li>Blog agent searches the web for AI news and auto-publishes posts to blogs.thetrillioniar.me.</li><li>Research agent parses public hiring posts (e.g. Hacker News hiring threads) to extract active engineering leads into a structured CSV.</li><li>Outreach agent reads that pipeline and delivers targeted 1-to-1 outreach via Resend with strict opt-out headers, directing leads to the B2B form.</li><li>Video agent turns JS animations into short videos and posts them via Buffer. All agents run on gemma4:31b from Ollama, and an n8n flow mirrors daily commit activity to LinkedIn.</li></ul>
           <div class="p-tags"><span class="tag">Hermes</span><span class="tag">Cron agents</span><span class="tag">Resend</span><span class="tag">Ollama</span><span class="tag">n8n</span><span class="tag">Buffer</span></div>
@@ -182,6 +182,51 @@
       </div>
     </article>
     <div class="work-list">
+      <article class="work-item reveal">
+        <div class="wi-head">
+          <div><p class="wf-role">Agents, scheduled</p><h3>Car Aura Collector</h3><p class="wf-desc">One car, one shoot, four times a day, with nobody watching.</p></div>
+          <a href="https://vistacars.thetrillioniar.me" target="_blank" rel="noopener" class="p-link" aria-label="Vista Cars live gallery">Live gallery <span aria-hidden="true">&#8599;</span></a>
+        </div>
+        <div class="stage-strip stage-strip-flow" aria-label="Car Aura pipeline, from the cron trigger to Instagram">
+          <span class="stage-step"><span class="stage-chip">Cron 4x/day</span><span class="stage-arr" aria-hidden="true">&#8594;</span></span><span class="stage-step"><span class="stage-chip">Plan</span><span class="stage-arr" aria-hidden="true">&#8594;</span></span><span class="stage-step"><span class="stage-chip">Harvest</span><span class="stage-arr" aria-hidden="true">&#8594;</span></span><span class="stage-step"><span class="stage-chip">Rate</span><span class="stage-arr" aria-hidden="true">&#8594;</span></span><span class="stage-step"><span class="stage-chip">Save</span><span class="stage-arr" aria-hidden="true">&#8594;</span></span><span class="stage-step"><span class="stage-chip">Gallery</span><span class="stage-arr" aria-hidden="true">&#8594;</span></span><span class="stage-step"><span class="stage-chip">Make.com</span><span class="stage-arr" aria-hidden="true">&#8594;</span></span><span class="stage-step"><span class="stage-chip">Instagram</span></span>
+        </div>
+        <ul class="wi-list">
+          <li>LangGraph StateGraph: plan &#8594; harvest &#8594; rate &#8594; save, with a conditional loop back to harvest when the portrait shots run short.</li>
+          <li>ddgs image search with a 640px floor, watermark and AI-art blocklists, and perceptual-hash dedupe, so no car or frame repeats.</li>
+          <li>Planning and rating started on Sodeom AI and Gemma-4 on Ollama Cloud; the graph now plans through an OpenAI-compatible endpoint and rates locally.</li>
+          <li>Runs on a cloud VPS at 00:00, 06:00, 12:00 and 18:00 UTC, commits each batch to GitHub, and the Flask gallery serves it through a Cloudflare tunnel.</li>
+          <li>A Make.com scenario turns the daily shoot into a car carousel on Instagram.</li>
+        </ul>
+        <div class="p-tags"><span class="tag">LangGraph</span><span class="tag">Make.com</span><span class="tag">Python</span><span class="tag">Flask</span><span class="tag">Ollama</span></div>
+        <div class="p-links">
+          <a href="https://github.com/Abdulhadi446/image-collector" target="_blank" rel="noopener" class="p-link" aria-label="Car Aura Collector repository">Repo <span aria-hidden="true">&#8599;</span></a>
+          <a href="https://www.instagram.com/vistacarz/" target="_blank" rel="noopener" class="p-link" aria-label="Vista Cars on Instagram">Instagram <span aria-hidden="true">&#8599;</span></a>
+        </div>
+      </article>
+      <article class="work-item reveal">
+        <div class="wi-head">
+          <div><p class="wf-role">Agents, verification</p><h3>LangChain Q&amp;A agent</h3><p class="wf-desc">An answer agent with a fact-checker that can send it back.</p></div>
+          <a href="https://github.com/Abdulhadi446/langchain" target="_blank" rel="noopener" class="p-link" aria-label="LangChain Q and A agent repository">Repo <span aria-hidden="true">&#8599;</span></a>
+        </div>
+        <ul class="wi-list">
+          <li>Two agents in one loop: the answer agent drafts, the fact-checker returns a structured true or false verdict, and a false verdict sends the draft back with corrections.</li>
+          <li>Stops on approval or after three attempts, so a bad answer cannot loop forever.</li>
+          <li>Runs on Sodeom's OpenAI-compatible endpoint at sodeom.com/v1 with the beam model.</li>
+        </ul>
+        <div class="p-tags"><span class="tag">LangChain</span><span class="tag">Python</span><span class="tag">Sodeom</span></div>
+      </article>
+      <article class="work-item reveal">
+        <div class="wi-head">
+          <div><p class="wf-role">Agents, research</p><h3>blogs-langchain</h3><p class="wf-desc">Web research that shows its sources.</p></div>
+          <a href="https://github.com/Abdulhadi446/blogs-langchain" target="_blank" rel="noopener" class="p-link" aria-label="blogs-langchain repository">Repo <span aria-hidden="true">&#8599;</span></a>
+        </div>
+        <ul class="wi-list">
+          <li>Searches Sodeom, fetches the top pages, strips scripts and styles, and converts the HTML to clean Markdown.</li>
+          <li>The LangChain agent drafts from that dossier, the fact-checker retries with corrections, and the validated answer is written to answers/*.md.</li>
+          <li>Both the LLM and the search come from Sodeom, so there is no second vendor in the loop.</li>
+        </ul>
+        <div class="p-tags"><span class="tag">LangChain</span><span class="tag">Python</span><span class="tag">Sodeom</span></div>
+      </article>
       <article class="work-item reveal">
         <div class="wi-head">
           <div><p class="wf-role">Automation, media</p><h3>AI blog and video pipeline</h3><p class="wf-desc">Daily AI news posts and short-form video, fully automated.</p><figure class="work-shot"><img src="assets/work-blog.jpg" alt="The Trillionir blog homepage with article counts and latest posts" width="800" height="260" loading="lazy"></figure></div>
@@ -218,11 +263,11 @@
     <div class="skills-grid reveal">
       <div class="skill-card skill-card-accent">
         <div class="skill-head"><div class="skill-ico" aria-hidden="true">AU</div><h3>Pipelines</h3></div>
-        <div class="skill-items"><span class="chip">Cron pipelines</span><span class="chip">MCP tool use</span><span class="chip">Dynamic model selection</span><span class="chip">n8n</span><span class="chip">Background jobs</span></div>
+        <div class="skill-items"><span class="chip">Cron pipelines</span><span class="chip">MCP tool use</span><span class="chip">Dynamic model selection</span><span class="chip">n8n</span><a class="chip" href="https://www.make.com" target="_blank" rel="noopener" aria-label="Make.com automation platform">Make.com</a><span class="chip">Background jobs</span></div>
       </div>
       <div class="skill-card">
         <div class="skill-head"><div class="skill-ico" aria-hidden="true">AG</div><h3>Agents</h3></div>
-        <div class="skill-items"><span class="chip">Agent orchestration</span><span class="chip">Tool calling</span><span class="chip">Hermes</span><span class="chip">OpenClaw</span><span class="chip">OpenCode</span><span class="chip">AgentOS</span></div>
+        <div class="skill-items"><span class="chip">Agent orchestration</span><span class="chip">Tool calling</span><a class="chip" href="https://www.langchain.com" target="_blank" rel="noopener" aria-label="LangChain">LangChain</a><a class="chip" href="https://www.langchain.com/langgraph" target="_blank" rel="noopener" aria-label="LangGraph">LangGraph</a><span class="chip">Hermes</span><span class="chip">OpenClaw</span><span class="chip">OpenCode</span><span class="chip">AgentOS</span></div>
       </div>
       <div class="skill-card">
         <div class="skill-head"><div class="skill-ico" aria-hidden="true">OUT</div><h3>Outreach</h3></div>

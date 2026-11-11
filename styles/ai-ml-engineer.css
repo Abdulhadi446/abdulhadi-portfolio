@@ -384,6 +384,8 @@ section::before {  /* ruler ticks hanging off the section rule */
 }
 .wi-body .wf-desc { margin-top: 8px; font-size: .97rem; }
 .wi-body .p-link { margin-top: 20px; display: inline-block; }
+.p-links { display: flex; flex-wrap: wrap; gap: 18px; margin-top: 20px; }
+.p-links .p-link { margin-top: 0; }
 
 /* ============================================================
    SKILLS — capability matrix table
