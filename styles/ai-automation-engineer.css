@@ -449,7 +449,7 @@ section { padding: clamp(56px, 11vh, 118px) 0; position: relative; }
   .about-grid { grid-template-columns: 1fr; }
   .skills-grid { grid-template-columns: repeat(2, 1fr); }
 }
-@media (max-width: 960px) {
+@media (max-width: 990px) {
   .stage-strip-flow::before, .stage-strip-flow::after { display: none; }
 }
 @media (max-width: 700px) {
