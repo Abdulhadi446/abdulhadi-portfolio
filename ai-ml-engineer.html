@@ -182,6 +182,33 @@
     <div class="work-list">
       <article class="work-item reveal">
         <div class="wi-grid">
+          <p class="wf-role">Fine-tuning, evals</p>
+          <div class="wi-body">
+            <h3>Creative Swearing Generator</h3>
+            <p class="wf-desc">A style-conditioned insult model, plus the dataset and benchmark built around it.</p>
+            <ul class="wi-list"><li>Fine-tuned Qwen3.5-0.8B-Base with QLoRA on 561 records across eight registers, from Shakespearean and Grose's 1785 slang to RoastMe and absurdist.</li><li>Built the Sewer benchmark: 27 held-out cases across seven style registers, scored with exact match, token F1 and ROUGE-L, with a per-style breakdown.</li><li>The useful lesson: overlap metrics punish creative output. A sharp line that looks nothing like the reference can score near zero, so diversity, style adherence and LLM judges are next.</li></ul>
+            <div class="p-tags"><span class="tag">QLoRA</span><span class="tag">Qwen</span><span class="tag">Evals</span><span class="tag">Dataset</span><span class="tag">Python</span></div>
+            <a href="https://github.com/Abdulhadi446/ml-swearer" target="_blank" rel="noopener" class="p-link" aria-label="Creative Swearing Generator repository">Repo <span aria-hidden="true">&#8599;</span></a>
+          </div>
+        </div>
+      </article>
+      <article class="work-item reveal">
+        <div class="wi-grid">
+          <p class="wf-role">Retrieval, MCP</p>
+          <div class="wi-body">
+            <h3>easy-rag and rag/mcp</h3>
+            <p class="wf-desc">A terminal RAG workbench, and the same retrieval pipeline behind an MCP server.</p>
+            <ul class="wi-list"><li>easy-rag indexes text, Markdown and PDFs into Chroma and chats through any OpenAI-compatible model from a Textual TUI or CLI.</li><li>Hybrid search fuses BM25 and dense hits with reciprocal rank fusion, then a quantized ms-marco cross-encoder reranks 20 candidates to 5, running as a roughly 23 MB ONNX model on CPU.</li><li>rag/mcp wraps the pipeline in a Streamable HTTP MCP server with five agent tools, Postgres plus pgvector HNSW, six chunkers and local ONNX embeddings.</li><li>Tenant isolation is bound to the request with a ContextVar; 49 tests include an adversarial user B query against user A's chunk.</li></ul>
+            <div class="p-tags"><span class="tag">RAG</span><span class="tag">ChromaDB</span><span class="tag">pgvector</span><span class="tag">MCP</span><span class="tag">ONNX</span><span class="tag">Python</span></div>
+            <div class="p-links">
+              <a href="https://github.com/Abdulhadi446/easy-rag-for-agent" target="_blank" rel="noopener" class="p-link" aria-label="easy-rag repository">easy-rag <span aria-hidden="true">&#8599;</span></a>
+              <a href="https://github.com/Abdulhadi446/easy-rag-for-agent-with-mcp" target="_blank" rel="noopener" class="p-link" aria-label="rag/mcp repository">rag/mcp <span aria-hidden="true">&#8599;</span></a>
+            </div>
+          </div>
+        </div>
+      </article>
+      <article class="work-item reveal">
+        <div class="wi-grid">
           <p class="wf-role">Agent graph</p>
           <div class="wi-body">
             <h3>Car Aura Collector</h3>
@@ -272,7 +299,8 @@
           <tr><th scope="row">Training</th><td><span class="chip">PyTorch</span><span class="chip">LLaMA-Factory</span><span class="chip">TRL</span><span class="chip">Unsloth</span><span class="chip">DeepSpeed</span><span class="chip">Kaggle 2xT4</span></td></tr>
           <tr><th scope="row">HuggingFace</th><td><span class="chip">Transformers</span><span class="chip">Safetensors</span><span class="chip">Model cards</span><span class="chip">Dataset publishing</span><span class="chip">Fine-tuning JSONL</span></td></tr>
           <tr><th scope="row">ML systems</th><td><span class="chip">FastAPI</span><span class="chip">OpenAI SDK</span><span class="chip">Calibrated classifiers</span><span class="chip">Serving</span><span class="chip">Routing</span></td></tr>
-          <tr><th scope="row">Evaluation</th><td><span class="chip">openbench</span><span class="chip">RULER-style RAG</span><span class="chip">Long-context</span><span class="chip">Abstention</span></td></tr>
+          <tr><th scope="row">Evaluation</th><td><span class="chip">openbench</span><span class="chip">RULER-style RAG</span><span class="chip">ROUGE-L / token F1</span><span class="chip">Long-context</span><span class="chip">Abstention</span></td></tr>
+          <tr><th scope="row">Retrieval</th><td><span class="chip">RAG</span><span class="chip">ChromaDB</span><span class="chip">pgvector HNSW</span><span class="chip">BM25 hybrid</span><span class="chip">Reciprocal rank fusion</span><span class="chip">ONNX rerankers</span><span class="chip">Chunking</span></td></tr>
           <tr><th scope="row">Agent systems</th><td><a class="chip" href="https://www.langchain.com" target="_blank" rel="noopener" aria-label="LangChain">LangChain</a><a class="chip" href="https://www.langchain.com/langgraph" target="_blank" rel="noopener" aria-label="LangGraph">LangGraph</a><span class="chip">MCP tool use</span><span class="chip">OpenAI-compatible endpoints</span></td></tr>
           <tr><th scope="row">Also</th><td><span class="chip">MoE</span><span class="chip">Expert batching</span><span class="chip">Small models</span><span class="chip">Model selection</span><span class="chip">Python</span></td></tr>
         </tbody>

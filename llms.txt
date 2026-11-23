@@ -23,6 +23,11 @@ Abdulhadi is a software engineer and founder with three years of hands-on experi
 - **Automated Blog Engine** (https://blogs.thetrillioniar.me): Fully autonomous publication pipeline with over 100 auto-researched, written, and published technical posts.
 - **Car Aura Collector** (https://github.com/Abdulhadi446/image-collector): LangGraph agent that plans, harvests, rates, and saves one car shoot four times a day, publishing to a Flask gallery (https://vistacars.thetrillioniar.me) and an Instagram carousel through Make.com.
 - **LangChain agents** (https://github.com/Abdulhadi446/langchain): Fact-checked answer agent with a structured retry loop, plus blogs-langchain (https://github.com/Abdulhadi446/blogs-langchain), a web research agent that returns cited answers.
+- **Sodeom MCP** (https://sodeom.com/mcp, https://github.com/sodeom/mcp): Public, keyless Model Context Protocol server over Streamable HTTP with six read-only tools for web, news, video, image, wiki, and page reads.
+- **easy-rag and rag/mcp** (https://github.com/Abdulhadi446/easy-rag-for-agent): Terminal RAG workbench over Chroma with optional BM25 hybrid and local ONNX reranking, plus rag/mcp (https://github.com/Abdulhadi446/easy-rag-for-agent-with-mcp), the same retrieval stack behind an MCP server on Postgres and pgvector HNSW with per-request tenant isolation.
+- **Creative Swearing Generator** (https://github.com/Abdulhadi446/ml-swearer): QLoRA fine-tune of Qwen3.5-0.8B-Base on a 561-record style-conditioned insult dataset, shipped with the Sewer benchmark of 27 held-out cases and a finding that overlap metrics punish creative generation.
+- **terminal-bird** (https://github.com/Abdulhadi446/terminal-bird): Dependency-free Python terminal game with Unicode half-block ANSI art, dirty-span rendering at roughly 3 KB per frame, and fixed 120 Hz physics.
+- **AI model watcher** (https://thetrillioniar.me): Polls Hugging Face, OpenRouter, Hacker News, Reddit, and lab feeds every 15 minutes, with code deciding what counts as a change and an LLM only reading the noisy threads.
 
 ## Verified Links and Entity References
 
@@ -40,3 +45,4 @@ Abdulhadi is a software engineer and founder with three years of hands-on experi
 - **Agents and Automation**: LangChain, LangGraph, Make.com, Ollama, Hermes, n8n, Resend, Buffer, ffmpeg, edge-tts, Cron, systemd, MCP (Model Context Protocol).
 - **Web and Frontend**: Next.js 16, React 19, TypeScript, Tailwind CSS, Three.js, React Three Fiber, GSAP, Lenis.
 - **Backend and Infrastructure**: Python, FastAPI, Docker, Cloudflare Tunnel, Linux (Ubuntu), SQLite, Supabase, SearXNG.
+- **Retrieval and Evaluation**: RAG, ChromaDB, pgvector HNSW, Postgres full-text search, BM25 hybrid retrieval, reciprocal rank fusion, ONNX Runtime rerankers, Textual TUIs, ROUGE-L and token F1 evals.

@@ -205,6 +205,28 @@
       </article>
       <article class="work-item reveal">
         <div class="wi-head">
+          <div><p class="wf-role">Monitoring, scheduled</p><h3>AI model watcher</h3><p class="wf-desc">A watcher that checks for new models and benchmark changes every 15 minutes.</p></div>
+          <a href="https://thetrillioniar.me/" target="_blank" rel="noopener" class="p-link" aria-label="TheTrillioniar">TheTrillioniar <span aria-hidden="true">&#8599;</span></a>
+        </div>
+        <div class="stage-strip" aria-label="Model watcher flow, from poll to alert">
+          <span class="stage-step"><span class="stage-chip">15 min poll</span><span class="stage-arr" aria-hidden="true">&#8594;</span></span><span class="stage-step"><span class="stage-chip">Code detects</span><span class="stage-arr" aria-hidden="true">&#8594;</span></span><span class="stage-step"><span class="stage-chip">Hard source</span><span class="stage-arr" aria-hidden="true">&#8594;</span></span><span class="stage-step"><span class="stage-chip">LLM reads</span><span class="stage-arr" aria-hidden="true">&#8594;</span></span><span class="stage-step"><span class="stage-chip">Alert</span></span>
+        </div>
+        <ul class="wi-list"><li>Polls Hugging Face, OpenRouter, Hacker News, Reddit and lab feeds every 15 minutes for new models and benchmark changes.</li><li>Code does the detecting: a Reddit tip only counts once the model shows up on a hard source like Hugging Face or OpenRouter.</li><li>The LLM reads the noisy threads and answers one narrow question, and never writes a claim the data does not back.</li><li>Running now and still being tuned; a daily email summary and early alerts are next.</li></ul>
+        <div class="p-tags"><span class="tag">Monitoring</span><span class="tag">LLM</span><span class="tag">Hugging Face</span><span class="tag">OpenRouter</span><span class="tag">Alerts</span></div>
+      </article>
+      <article class="work-item reveal">
+        <div class="wi-head">
+          <div><p class="wf-role">Agents, tooling</p><h3>Sodeom MCP</h3><p class="wf-desc">A keyless MCP server, live at sodeom.com/mcp, that gives any agent private web search.</p></div>
+          <a href="https://github.com/sodeom/mcp" target="_blank" rel="noopener" class="p-link" aria-label="Sodeom MCP repository">Repo <span aria-hidden="true">&#8599;</span></a>
+        </div>
+        <ul class="wi-list"><li>Six read-only tools over Streamable HTTP: search, news, videos, images, wiki and fetch_url.</li><li>Results are plain text capped at 12k characters, so an agent gets facts without blowing up its context.</li><li>Stateless and keyless: a one-shot curl works, and fetch_url blocks private and loopback addresses.</li></ul>
+        <div class="p-tags"><span class="tag">MCP</span><span class="tag">Streamable HTTP</span><span class="tag">Search</span><span class="tag">Open source</span></div>
+        <div class="p-links">
+          <a href="https://sodeom.com/" target="_blank" rel="noopener" class="p-link" aria-label="Sodeom search engine">Sodeom <span aria-hidden="true">&#8599;</span></a>
+        </div>
+      </article>
+      <article class="work-item reveal">
+        <div class="wi-head">
           <div><p class="wf-role">Agents, verification</p><h3>LangChain Q&amp;A agent</h3><p class="wf-desc">An answer agent with a fact-checker that can send it back.</p></div>
           <a href="https://github.com/Abdulhadi446/langchain" target="_blank" rel="noopener" class="p-link" aria-label="LangChain Q and A agent repository">Repo <span aria-hidden="true">&#8599;</span></a>
         </div>
